@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+    #ICS\CryptoBundle\Controller\:
+        #resource: "../src/Controller"
+        #tags: ['controller.services_arguments']
+    #ICS\CryptoBundle\Service\:
+        #resource: "../src/Service"
+        #tags: ['controller.services_arguments']
+    #ICS\CryptoBundle\Command\:
+        #resource: "../src/Command"
+        #tags: ['controller.services_arguments']
+    #ICS\CryptoBundle\Twig\:
+        #resource: "../src/Twig"
+        #tags: ['controller.services_arguments']
+    #ICS\CryptoBundle\Form\:
+        #resource: "../src/Form"
+        #tags: ['controller.services_arguments']

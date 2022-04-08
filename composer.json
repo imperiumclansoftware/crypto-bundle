@@ -1,0 +1,23 @@
+{
+    "name": "ics/crypto-bundle",
+    "description": "A new bundle",
+    "type": "symfony-bundle",
+    "version": "0.0.1",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ICS\\CryptoBundle\\": "/src"
+        }
+    },
+    "require": {
+        "symfony/framework-bundle": "^5|^6",
+        "symfony/config": "^5",
+        "symfony/dependency-injection": "^5",
+        "symfony/routing": "^5",
+        "symfony/form": "^5",
+        "doctrine/orm": "^2.8",
+        "twig/twig": "^3.3",
+        "symfony/doctrine-bridge": "^5",
+        "symfony/http-client": "^5"
+    }
+}
