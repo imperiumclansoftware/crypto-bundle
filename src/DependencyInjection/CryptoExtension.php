@@ -27,11 +27,11 @@
             // Loading doctrine config
             $loader->load('doctrine.yaml');
             // Loading specific bundle config
-            //$bundles = $container->getParameter('kernel.bundles');
-            // if(isset($bundles['LiipImagineBundle']))
-            //{
-            //    $loader->load('liip_imagine.yaml');
-            //}
+            $bundles = $container->getParameter('kernel.bundles');
+            if(isset($bundles['NavigationBundle']))
+            {
+                $loader->load('navigation.yaml');
+            }
         }
     }
     

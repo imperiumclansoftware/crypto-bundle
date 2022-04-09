@@ -18,6 +18,7 @@
         "doctrine/orm": "^2.8",
         "twig/twig": "^3.3",
         "symfony/doctrine-bridge": "^5",
-        "symfony/http-client": "^5"
+        "symfony/http-client": "^5",
+        "ics/ssi-bundle": "^0.2.6"
     }
 }

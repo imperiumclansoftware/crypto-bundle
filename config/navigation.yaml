@@ -1,0 +1,9 @@
+navigation:
+  navbars:
+    main:
+      items:
+        crypto-homepage:
+          lib: crypto
+          icon: fa fa-home
+          route: ics-crypto-homepage
+          order: 10

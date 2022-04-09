@@ -2,9 +2,9 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
-    #ICS\CryptoBundle\Controller\:
-        #resource: "../src/Controller"
-        #tags: ['controller.services_arguments']
+    ICS\CryptoBundle\Controller\:
+        resource: "../src/Controller"
+        tags: ['controller.services_arguments']
     #ICS\CryptoBundle\Service\:
         #resource: "../src/Service"
         #tags: ['controller.services_arguments']
