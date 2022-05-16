@@ -2,3 +2,6 @@ controllers:
     resource: ../src/Controller/
     type: annotation
     
+dashboard_bundle:
+    resource: '@DashboardBundle/config/routes.yaml'
+    prefix: /dashboard

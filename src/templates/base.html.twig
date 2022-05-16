@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ renderLibs() }}
+        <meta charset="UTF-8">
+        <title>{% block title %}Crypto Geronimo !{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {{ renderLibs() }}
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% if is_granted("ROLE_USER")  %}
+            {{ renderNavBar('main') }} 
+        {% endif %}
+        {# {{ renderNavBar('main') }} #}
+        {% block body %}
+        
+
+
+            <footer class="mt-7 px-3 py-5 text-center text-muted">
+                <p>
+                    Cryptomonnaies - Philippe Basuyau &copy; Imperium Clan Software
+                </p>
+                <p>
+                    <a href="#" class="text-white"> Back to top</a>
+                </p>
+            </footer>
+        {% endblock %}
+    </body>
+</html>
