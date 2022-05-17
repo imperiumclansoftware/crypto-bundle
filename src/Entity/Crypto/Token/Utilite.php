@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(schema="crypto")
  */
-class Utilitie
+class Utilite
 {
     /**
      * @ORM\Id
@@ -105,4 +105,4 @@ class Utilitie
     {
         return $this->getUtilite();
     }
-}//---Fin de la class PriceHistorique
+}//---Fin de la class Utilite

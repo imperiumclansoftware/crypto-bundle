@@ -1,0 +1,283 @@
+{# {% include "admin\adminHome.html.twig" %} #}
+{% trans_default_domain('budgetmanager') %}
+
+<div class= "container-fluid">
+    <div class="row d-inline-flex col-12">
+        <div class="col ">
+            <div class="card  h-100 alert-info">
+                {# <div class= "container-fluid"> #}
+                    <div class="row mt-4 mb-4 d-inline-flex col-12">
+                        <div class="col-6 " >
+                            <div class="card text-center h-100 alert-secondary">
+                                <span style="font-size: 17px;">Nbr cpts Comptes </span>
+                                <span style="font-size: 19px;">7</span>
+                                <span class="mb-1" style="font-size: 17px;">
+                                    <i>Solde : 1000,00 €</i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <div class="card text-center h-100 alert-secondary">
+                                <span style="font-size: 17px;">Nbr cpts Courants</span>
+                                <span style="font-size: 19px;">7</span>
+                                <span class="mb-1" style="font-size: 17px;">
+                                    <i>Solde : 5000,00 €</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                {# </div> #}
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 alert-danger">
+                {# <div class= "container-fluid"> #}
+                    <div class="row mt-4 mb-4 d-inline-flex col-12">
+                        <div class="col-6 ">
+                            <div class="card text-center h-100 alert-secondary">
+                                <span style="font-size: 17px;">Nbr de Crédit</span>
+                                <span style="font-size: 19px;"> 2</span>
+                                <span class="mb-1" style="font-size: 17px;">
+                                    <i>débiteur : 3000,00 €</i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card text-center h-100 alert-secondary">
+                                <span style="font-size: 17px;">Nbr Crédit Conso.</span>
+                                <span style="font-size: 19px;"> 2</span>
+                                <span class="mb-1" style="font-size: 17px;">
+                                    <i>débiteur : 3000,00 €</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                {# </div> #}
+            </div>
+        </div>
+        <div class="col ">
+            <div class="card  h-100 alert-success">
+                {# <div class= "container-fluid"> #}
+                    <div class="row mt-4 mb-4 d-inline-flex col-12">
+                        <div class="col-6 ">
+                            <div class="card text-center h-100 alert-secondary">
+                                <span style="font-size: 17px;">Nbr cpts Epargnes</span>
+                                <span style="font-size: 19px;"> 7</span>
+                                <span class="mb-1" style="font-size: 17px;">
+                                    <i>Solde : 3000,00 €</i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-6 " >
+                            <div class="card text-center h-100 alert-secondary">
+                                <span style="font-size: 17px;">Nbr cpts Bloqués</span>
+                                <span style="font-size: 19px;"> 2</span>
+                                <span class="mb-1" style="font-size: 17px;">
+                                    <i>Solde : 2000,00 €</i>
+                                </span>
+                            </div>
+                        </div>
+                    {# </div> #}
+                </div>
+            </div>
+        </div>
+    </div>
+{# </div>
+
+<div class= "container-fluid"> #}
+    <div class="row  mt-4 d-inline-flex col-12">
+        <div class="col">
+            <div class="card h-100 alert-info">
+                <div class="row">
+                    <div class="col-10 mt-4 mb-4 offset-1">
+                        <div class="card  alert-secondary text-center">
+                            <span style="font-size: 23px;">
+                                Cpt courant 1 - N° compte
+                            </span>
+                            <span style="font-size: 17px;">
+                                <i> Avoir : <strong>2000,00 €</strong></i>
+                            </span>
+                            </span>
+                            <span class="text-muted mb-2" style="font-size:15px;">
+                                <i>
+                                    CB : 1 - Chéquier Oui
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 mb-4 offset-1">
+                        <div class="card alert-secondary text-center">
+                            <span style="font-size: 23px;">
+                                Cpt courant 2 - N° compte
+                            </span>
+                            <span style="font-size: 17px;">
+                                <i> Avoir : <strong>2000,00 €</strong></i>
+                            </span>
+                            </span>
+                            <span class="text-muted mb-2" style="font-size:15px;">
+                                <i>
+                                    CB : 1 - Chéquier Oui
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 mb-4 offset-1">
+                        <div class="card alert-secondary text-center">
+                            <span style="font-size: 23px;">
+                                Cpt courant 3 -  N° compte
+                            </span>
+                            <span style="font-size: 17px;">
+                                <i> Avoir : <strong>2000,00 €</strong></i>
+                            </span>
+                            </span>
+                            <span class="text-muted mb-2" style="font-size:15px;">
+                                <i>
+                                    CB : 0 - Chéquier Oui
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 alert-danger">
+                <div class="card h-100 alert-danger text-center">
+                    <div class="row">
+                        <div class="col-10 mt-4 mb-4 offset-1">
+                            <div class="card h-100 alert-secondary text-center">
+                                <span style="font-size: 23px;">
+                                    Crédit Maison - N° contrat
+                                </span>
+                                <span style="font-size: 17px;">
+                                    <i> Crédit : <strong>2000,00 €</strong></i>
+                                </span>
+                                </span>
+                                <span class="text-muted mb-2" style="font-size:15px;">
+                                    <i>
+                                        Mois restant : 20
+                                    </i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 mb-4 offset-1">
+                            <div class="card h-100 alert-secondary text-center">
+                                <span style="font-size: 23px;">
+                                    Crédit voiture - N° contrat
+                                </span>
+                                <span style="font-size: 17px;">
+                                    <i> Crédit : <strong>2000,00 €</strong></i>
+                                </span>
+                                </span>
+                                <span class="text-muted mb-2" style="font-size:15px;">
+                                    <i>
+                                        Mois restant : 20
+                                    </i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 mb-4 offset-1">
+                            <div class="card h-100 alert-secondary text-center">
+                                <span style="font-size: 23px;">
+                                    Crédit Consommation  -  N° contrat
+                                </span>
+                                <span style="font-size: 17px;">
+                                    <i> Crédit : <strong>2000,00 €</strong></i>
+                                </span>
+                                </span>
+                                <span class="text-muted mb-2" style="font-size:15px;">
+                                    <i>
+                                        Mois restant : 20
+                                    </i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 alert-success">
+                <div class="card h-100 alert-success text-center">
+                    <div class="row">
+                        <div class="col-10 mt-4 mb-4 offset-1">
+                            <div class="card h-100 alert-secondary text-center">
+                                <span style="font-size: 23px;">
+                                    Cpt Epargne 1 - N° compte
+                                </span>
+                                <span style="font-size: 17px;">
+                                    <i> Avoir : <strong>2000,00 €</strong></i>
+                                </span>
+                                </span>
+                                <span class="text-muted mb-2" style="font-size:15px;">
+                                    <i>Bloqué : Non</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 mb-4 offset-1">
+                            <div class="card h-100 alert-secondary text-center">
+                                <span style="font-size: 23px;">
+                                    Assurance vie 1 N° compte
+                                </span>
+                                <span style="font-size: 17px;">
+                                    <i> Avoir : <strong>2000,00 €</strong></i>
+                                </span>
+                                <span class="text-muted mb-2" style="font-size:15px;">
+                                    <i>Bloqué : Oui</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 mb-4 offset-1">
+                            <div class="card h-100 alert-secondary text-center">
+                                <span style="font-size: 23px;">
+                                    CEL - N° compte
+                                </span>
+                                <span style="font-size: 17px;">
+                                    <i> Avoir : <strong>2000,00 €</strong></i>
+                                </span>
+                                </span>
+                                <span class="text-muted mb-2" style="font-size:15px;">
+                                    <i>Bloqué : Non</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 mb-4 offset-1">
+                            <div class="card h-100 alert-secondary text-center">
+                                <span style="font-size: 23px;">
+                                    PEL -  N° compte
+                                </span>
+                                <span style="font-size: 17px;">
+                                    <i> Avoir : <strong>2000,00 €</strong></i>
+                                </span>
+                                </span>
+                                <span class="text-muted mb-2" style="font-size:15px;">
+                                    <i>Bloqué : Oui</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+
+    });
+</script>

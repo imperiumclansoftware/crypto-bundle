@@ -2,14 +2,14 @@
 
 namespace ICS\CryptoBundle\Controller\Admin;
 
-use ICS\CelebrityBundle\Entity\Vente;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use ICS\CryptoBundle\Entity\Crypto\Token\Utilite;
 
-class VenteCrudController extends AbstractCrudController
+class UtiliteCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Vente::class;
+        return Utilite::class;
     }
 
     /*

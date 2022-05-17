@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LogoExchangeController extends AbstractController
+class UtiliteController extends AbstractController
 {
     /**
-     * @Route("/logoExchange", name="app_logo_exchange")
+     * @Route("/utilite", name="app_utilite")
      */
     public function index(): Response
     {
-        return $this->render('Comptes/logoExchange/index.html.twig', [
-            'controller_name' => 'LogoExchangeController',
+        return $this->render('Utilite/index.html.twig', [
+            'controller_name' => 'UtiliteController',
         ]);
     }
 }
