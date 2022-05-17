@@ -2,6 +2,7 @@
 
 namespace ICS\CryptoBundle\Form\Type\Calcul;
 
+use ICS\CryptoBundle\Entity\Crypto\Calcul\Achat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +19,7 @@ class AchatType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Achat::class,
         ]);
     }
 }

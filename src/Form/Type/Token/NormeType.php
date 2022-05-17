@@ -1,14 +1,13 @@
 <?php
 
-namespace ICS\CryptoBundle\Form\Type\Comptes;
+namespace ICS\CryptoBundle\Form\Type\Token;
 
-use ICS\CryptoBundle\Entity\Crypto\Comptes\TypePlateforme;
+use ICS\CryptoBundle\Entity\Crypto\Token\Norme;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TypeplateformeType extends AbstractType
+class NormeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -22,13 +21,29 @@ class TypeplateformeType extends AbstractType
                     'required' => false,
                 ]
             )
+        ->add(
+                'description',
+                TextareaType::class,
+                [
+                    'label' => false,
+                    'required' => false,
+                ]
+            )
+            ->add(
+                'gravity',
+                TextType::class,
+                [
+                    'label' => false,
+                    'required' => false,
+                ]
+            )
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => TypePlateforme::class,
+            'data_class' => Norme::class,
         ]);
     }
 }
