@@ -54,10 +54,10 @@ abstract class Cryptomonnaie
     private $favoris;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Token\Utilitie", inversedBy="cryptomonnaies")
-     * @ORM\JoinColumn(name="utilitie_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Token\Utilite", inversedBy="cryptomonnaies")
+     * @ORM\JoinColumn(name="utilite_id", referencedColumnName="id")
      */
-    private $utilitie;
+    private $utilite;
 
     /**
      * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Token\Api", inversedBy="cryptomonnaies")
@@ -390,21 +390,21 @@ abstract class Cryptomonnaie
     }
 
     /**
-     * Get the value of utilitie
+     * Get the value of utilite
      */ 
-    public function getUtilitie()
+    public function getUtilite()
     {
-        return $this->utilitie;
+        return $this->utilite;
     }
 
     /**
-     * Set the value of utilitie
+     * Set the value of utilite
      *
      * @return  self
      */ 
-    public function setUtilitie($utilitie)
+    public function setUtilite($utilite)
     {
-        $this->utilitie = $utilitie;
+        $this->utilite = $utilite;
 
         return $this;
     }
@@ -508,4 +508,5 @@ abstract class Cryptomonnaie
 
         return $this;
     }
+
 }//---Fin de la class Cryptomonnaie
