@@ -3,6 +3,10 @@ Bundle de gestion de cryptos monnaies multi-plateforme
 Synfony 5.4
 Php >=7.4.29
 
+Add bundle to your developpement application
+
+    composer require ics/crypto-bundle
+    
 Installation for developpement
 
 Add local repository to composer.json developpement application
@@ -23,10 +27,6 @@ Add local repository to composer.json developpement application
             }
         ]
     }
-
-Add bundle to your developpement application
-
-    composer require ics/crypto-bundle
 
 
 Version: 
