@@ -26,10 +26,10 @@ Add local repository to composer.json developpement application
 
 Add bundle to your developpement application
 
-composer require ics/crypto-bundle
+    composer require ics/crypto-bundle
 
 
-les  : 
+Version  : 
  "easycorp/easyadmin-bundle": "^3.5",
  "ics/crypto-bundle": "^0.0.1",
  "ics/libs-bundle": "^0.0.1",
