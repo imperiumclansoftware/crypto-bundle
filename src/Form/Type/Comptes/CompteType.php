@@ -34,21 +34,55 @@ class CompteType extends AbstractType
                 ]
             )
         ->add(
-            'typePlateform',
-            EntityType::class,[
-                'class' => TypePlateforme::class,
-                'label' => 'Type de plateforme',
-                'required' => false,
-            ]
-        )
+                'ouverture',
+                DateTimeType::class,
+                [
+                    'label' => false,
+                    'required' => false,
+                    'widget' => 'choice',
+                ]
+            )
         ->add(
-            'logoExchange',
-            EntityType::class,[
-                'class' => logoExchange::class,
-                'label' => 'Type de plateforme',
-                'required' => false,
-            ]
-        )
+                'cloture',
+                DateTimeType::class,
+                [
+                    'label' => false,
+                    'required' => false,
+                    'widget' => 'choice',
+                ]
+            )   
+        ->add(
+                'fondGarantie',
+                CheckboxType::class,
+                [
+                    'label' => "fond de garantie",
+                    'required' => false,
+                ]
+            )
+        ->add(
+                'montantGarantie',
+                NumberType::class,
+                [
+                    'label' => false,
+                    'required' => false,
+                ]
+            )
+        ->add(
+                'typePlateform',
+                EntityType::class,[
+                    'class' => TypePlateforme::class,
+                    'label' => 'Type de plateforme',
+                    'required' => false,
+                ]
+            )
+        ->add(
+                'user',
+                EntityType::class,[
+                    'class' => User::class,
+                    'label' => 'user',
+                    'required' => false,
+                ]
+            ) 
         ;
     }
 

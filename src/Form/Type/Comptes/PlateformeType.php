@@ -28,65 +28,13 @@ class PlateformeType extends AbstractType
                 ]
             )
         ->add(
-            'ouverture',
-            DateTimeType::class,
-            [
-                'label' => false,
-                'required' => false,
-                'widget' => 'choice',
-            ]
-        )
-        ->add(
-            'cloture',
-            DateTimeType::class,
-            [
-                'label' => false,
-                'required' => false,
-                'widget' => 'choice',
-            ]
-        )  
-        ->add(
-            'ouverturCpt',
-            DateTimeType::class,
-            [
-                'label' => false,
-                'required' => false,
-                'widget' => 'choice',
-            ]
-        )
-        ->add(
-            'clotureCpt',
-            DateTimeType::class,
-            [
-                'label' => false,
-                'required' => false,
-                'widget' => 'choice',
-            ]
-        )  
-        ->add(
-            'fondGarantie',
-            CheckboxType::class,
-            [
-                'label' => "fond de garantie",
-                'required' => false,
-            ]
-        )
-        ->add(
-                'montantGarantie',
-                NumberType::class,
+                'gravity',
+                TextType::class,
                 [
                     'label' => false,
                     'required' => false,
                 ]
             )
-        ->add(
-            'gravity',
-            TextType::class,
-            [
-                'label' => false,
-                'required' => false,
-            ]
-        )
         ->add(
                 'description',
                 TextareaType::class,
@@ -96,12 +44,13 @@ class PlateformeType extends AbstractType
                 ]
             )
         ->add(
-            'user',
-            EntityType::class,[
-                'class' => User::class,
-                'label' => 'user',
-                'required' => false,
-        ])   
+                'logoExchange',
+                EntityType::class,[
+                    'class' => logoExchange::class,
+                    'label' => 'Type de plateforme',
+                    'required' => false,
+                ]
+            )
         ;
     }
 
