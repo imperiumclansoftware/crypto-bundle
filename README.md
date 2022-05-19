@@ -29,10 +29,11 @@ Add bundle to your developpement application
     composer require ics/crypto-bundle
 
 
-Version  : 
-     "easycorp/easyadmin-bundle": "^3.5",
-     "ics/crypto-bundle": "^0.0.1",
-     "ics/libs-bundle": "^0.0.1",
-     "ics/medias-bundle": "^0.0.6",
-     "ics/ssi-bundle": "^0.2.6",
-     "ics/tools-bundle": "^0.0.1",
+Version: 
+         "easycorp/easyadmin-bundle": "^3.5",
+         "ics/crypto-bundle": "^0.0.1",
+         "ics/libs-bundle": "^0.0.1",
+         "ics/medias-bundle": "^0.0.6",
+         "ics/ssi-bundle": "^0.2.6",
+         "ics/tools-bundle": "^0.0.1",
+         
