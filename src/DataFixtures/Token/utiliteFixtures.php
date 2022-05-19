@@ -4,7 +4,6 @@ namespace ICS\CryptoBundle\DataFixtures\Token;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use ICS\CryptoBundle\Entity\Crypto\Token\Utilite;
 
@@ -48,8 +47,18 @@ class UtiliteFixtures extends Fixture implements FixtureGroupInterface
         $manager->persist($utilite);
 
         $utilite = new Utilite();
-        $utilite->setUtilite('musique');
+        $utilite->setUtilite('Musique');
         $utilite->setDescription("Pour les musiques");
+        $manager->persist($utilite);
+
+        $utilite = new Utilite();
+        $utilite->setUtilite('Infrastructure');
+        $utilite->setDescription("Passerelle entre les différents protocoles");
+        $manager->persist($utilite);
+
+        $utilite = new Utilite();
+        $utilite->setUtilite('Service');
+        $utilite->setDescription("Service");
         $manager->persist($utilite);
 
         $manager->flush();

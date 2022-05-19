@@ -17,3 +17,6 @@ services:
     ICS\CryptoBundle\Form\:
         resource: "../src/Form"
         tags: ['controller.services_arguments']
+    ICS\CryptoBundle\DataFixtures\:
+        resource: "../src/DataFixtures"
+        tags: ['controller.service_arguments']

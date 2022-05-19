@@ -31,9 +31,9 @@ class logoExchange
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Compte", mappedBy="logoExchange")
+     * @ORM\OneToOne(targetEntity="Plateforme", mappedBy="logoExchange")
      */
-    private $comptes;
+    private $plateformes;
 
     //--- Le Construc ---
     public function __construct()
@@ -104,21 +104,25 @@ class logoExchange
     }
 
     /**
-     * Get the value of comptes
+     * Get the value of plateformes
+     *
+     * @return  ArrayCollection
      */ 
-    public function getComptes()
+    public function getPlateformes()
     {
-        return $this->comptes;
+        return $this->plateformes;
     }
 
     /**
-     * Set the value of comptes
+     * Set the value of plateformes
+     *
+     * @param  ArrayCollection  $plateformes
      *
      * @return  self
      */ 
-    public function setComptes($comptes)
+    public function setPlateformes(ArrayCollection $plateformes)
     {
-        $this->comptes = $comptes;
+        $this->plateformes = $plateformes;
 
         return $this;
     }

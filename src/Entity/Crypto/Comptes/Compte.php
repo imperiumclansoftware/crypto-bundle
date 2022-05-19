@@ -3,6 +3,7 @@
 namespace ICS\CryptoBundle\Entity\Crypto\Comptes;
 
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,31 +24,63 @@ class Compte extends Plateforme
      * @var string
      */
     private $observation;
+    
+    /**
+    * @ORM\Column(type="date", nullable=true)
+    *  @var DateTime
+    */
+    private $ouverture;
+
+    /**
+    * @ORM\Column(type="date", nullable=true)
+    *  @var DateTime
+    */
+    private $cloture;
+
+    /**
+    * @ORM\Column(type="boolean", nullable=true)
+    * @var bool
+    */
+    private $fondGarantie;
+
+    /**
+    * @ORM\Column(type="float", nullable=true)
+    * @var float
+    */
+    private $montantGarantie;
 
     /**
      * @ORM\OneToOne(targetEntity="TypePlateforme", inversedBy="typeCompte")
      * @ORM\JoinColumn(name="typeCompte_id", referencedColumnName="id")
      */
-    private $typePlateform;
+    private $typePlateforme;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\logoExchange", inversedBy="comptes")
-     * @ORM\JoinColumn(name="logo_exchange_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\User", inversedBy="plateformes")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $logoExchange;
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Operation", mappedBy="plateforme")
+     * @var ArrayCollection
+     */
+    private $operations;
 
     //--- Le Construc ---
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
+        $this->operations = new ArrayCollection();
     }
      //--- Les Getters & les Setters ---
 
 
 
-
     /**
      * Get the value of nameCompte
+     *
+     * @return  string
      */ 
     public function getNameCompte()
     {
@@ -57,9 +90,11 @@ class Compte extends Plateforme
     /**
      * Set the value of nameCompte
      *
+     * @param  string  $nameCompte
+     *
      * @return  self
      */ 
-    public function setNameCompte($nameCompte)
+    public function setNameCompte(string $nameCompte)
     {
         $this->nameCompte = $nameCompte;
 
@@ -68,6 +103,8 @@ class Compte extends Plateforme
 
     /**
      * Get the value of observation
+     *
+     * @return  string
      */ 
     public function getObservation()
     {
@@ -77,9 +114,11 @@ class Compte extends Plateforme
     /**
      * Set the value of observation
      *
+     * @param  string  $observation
+     *
      * @return  self
      */ 
-    public function setObservation($observation)
+    public function setObservation(string $observation)
     {
         $this->observation = $observation;
 
@@ -87,55 +126,137 @@ class Compte extends Plateforme
     }
 
     /**
-     * Get the value of nameType
+     * Get the value of ouverture
+     *
+     * @return  DateTime
      */ 
-    public function getNameType()
+    public function getOuverture()
     {
-        return $this->nameType;
-    }
-    
-
-    /**
-     * Get the value of typePlateform
-     */ 
-    public function getTypePlateform()
-    {
-        return $this->typePlateform;
+        return $this->ouverture;
     }
 
     /**
-     * Set the value of typePlateform
+     * Set the value of ouverture
+     *
+     * @param  DateTime  $ouverture
      *
      * @return  self
      */ 
-    public function setTypePlateform($typePlateform)
+    public function setOuverture(DateTime $ouverture)
     {
-        $this->typePlateform = $typePlateform;
+        $this->ouverture = $ouverture;
 
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->getNameCompte();
-    }
-
     /**
-     * Get the value of logoExchange
+     * Get the value of cloture
+     *
+     * @return  DateTime
      */ 
-    public function getLogoExchange()
+    public function getCloture()
     {
-        return $this->logoExchange;
+        return $this->cloture;
     }
 
     /**
-     * Set the value of logoExchange
+     * Set the value of cloture
+     *
+     * @param  DateTime  $cloture
      *
      * @return  self
      */ 
-    public function setLogoExchange($logoExchange)
+    public function setCloture(DateTime $cloture)
     {
-        $this->logoExchange = $logoExchange;
+        $this->cloture = $cloture;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fondGarantie
+     *
+     * @return  bool
+     */ 
+    public function getFondGarantie()
+    {
+        return $this->fondGarantie;
+    }
+
+    /**
+     * Set the value of fondGarantie
+     *
+     * @param  bool  $fondGarantie
+     *
+     * @return  self
+     */ 
+    public function setFondGarantie(bool $fondGarantie)
+    {
+        $this->fondGarantie = $fondGarantie;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of montantGarantie
+     *
+     * @return  float
+     */ 
+    public function getMontantGarantie()
+    {
+        return $this->montantGarantie;
+    }
+
+    /**
+     * Set the value of montantGarantie
+     *
+     * @param  float  $montantGarantie
+     *
+     * @return  self
+     */ 
+    public function setMontantGarantie(float $montantGarantie)
+    {
+        $this->montantGarantie = $montantGarantie;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of typePlateforme
+     */ 
+    public function getTypePlateforme()
+    {
+        return $this->typePlateforme;
+    }
+
+    /**
+     * Set the value of typePlateforme
+     *
+     * @return  self
+     */ 
+    public function setTypePlateforme($typePlateforme)
+    {
+        $this->typePlateforme = $typePlateforme;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user
+     */ 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */ 
+    public function setUser($user)
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -4,11 +4,10 @@ namespace ICS\CryptoBundle\DataFixtures\Token;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use ICS\CryptoBundle\Entity\Crypto\Token\Concensus;
 
-class ConsensusFixtures extends Fixture implements FixtureGroupInterface
+class ConcensusFixtures extends Fixture implements FixtureGroupInterface
 {
     public function load(ObjectManager $manager)
     {

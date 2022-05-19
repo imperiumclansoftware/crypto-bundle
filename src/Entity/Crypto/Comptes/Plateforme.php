@@ -2,18 +2,14 @@
 
 namespace ICS\CryptoBundle\Entity\Crypto\Comptes;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use DateTime;
 
 /**
  * @author Philippe BASUYAU
  * @ORM\Entity
  * @ORM\Table(schema="crypto")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
  */
-abstract class Plateforme
+class Plateforme
 {
     /**
      * @ORM\Id
@@ -29,36 +25,7 @@ abstract class Plateforme
      */
     private $libelle;
 
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     *  @var DateTime
-     */
-    private $ouverture;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     *  @var DateTime
-     */
-    private $cloture;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     * @var bool
-     */
-    private $fondGarantie;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     * @var float
-     */
-    private $montantGarantie;
-
-    /**
-     * @ORM\Column(type="string", length=250, nullable=true)
-     * @var string
-     */
-    private $email;
-
+    
     /**
      * @ORM\Column(type="string", length=250, nullable=true)
      * @var string
@@ -72,39 +39,26 @@ abstract class Plateforme
     private $description;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
-     * @var DateTime
+     * @ORM\OneToOne(targetEntity="logoExchange", inversedBy="plateformes")
+     * @ORM\JoinColumn(name="logo_exchange_id", referencedColumnName="id")
      */
-    private $ouvertureCpt;
+    private $logoExchange;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     * @var DateTime
-     */
-    private $clotureCpt;
 
-    /**
-     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Operation", mappedBy="plateforme")
-     * @var ArrayCollection
-     */
-    private $operations;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\User", inversedBy="plateformes")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
 
      //--- Le Construc ---
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
-        $this->operations = new ArrayCollection();
     }
       //--- Les Getters & les Setters ---
 
+
+
     /**
      * Get the value of id
+     *
+     * @return  int
      */ 
     public function getId()
     {
@@ -114,9 +68,11 @@ abstract class Plateforme
     /**
      * Set the value of id
      *
+     * @param  int  $id
+     *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
 
@@ -125,6 +81,8 @@ abstract class Plateforme
 
     /**
      * Get the value of libelle
+     *
+     * @return  string
      */ 
     public function getLibelle()
     {
@@ -134,9 +92,11 @@ abstract class Plateforme
     /**
      * Set the value of libelle
      *
+     * @param  string  $libelle
+     *
      * @return  self
      */ 
-    public function setLibelle($libelle)
+    public function setLibelle(string $libelle)
     {
         $this->libelle = $libelle;
 
@@ -144,87 +104,9 @@ abstract class Plateforme
     }
 
     /**
-     * Get the value of ouverture
-     */ 
-    public function getOuverture()
-    {
-        return $this->ouverture;
-    }
-
-    /**
-     * Set the value of ouverture
-     *
-     * @return  self
-     */ 
-    public function setOuverture($ouverture)
-    {
-        $this->ouverture = $ouverture;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of cloture
-     */ 
-    public function getCloture()
-    {
-        return $this->cloture;
-    }
-
-    /**
-     * Set the value of cloture
-     *
-     * @return  self
-     */ 
-    public function setCloture($cloture)
-    {
-        $this->cloture = $cloture;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of fondGarantie
-     */ 
-    public function getFondGarantie()
-    {
-        return $this->fondGarantie;
-    }
-
-    /**
-     * Set the value of fondGarantie
-     *
-     * @return  self
-     */ 
-    public function setFondGarantie($fondGarantie)
-    {
-        $this->fondGarantie = $fondGarantie;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of email
-     */ 
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set the value of email
-     *
-     * @return  self
-     */ 
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
      * Get the value of gravity
+     *
+     * @return  string
      */ 
     public function getGravity()
     {
@@ -234,9 +116,11 @@ abstract class Plateforme
     /**
      * Set the value of gravity
      *
+     * @param  string  $gravity
+     *
      * @return  self
      */ 
-    public function setGravity($gravity)
+    public function setGravity(string $gravity)
     {
         $this->gravity = $gravity;
 
@@ -244,56 +128,9 @@ abstract class Plateforme
     }
 
     /**
-     * Get the value of operations
-     */ 
-    public function getOperations()
-    {
-        return $this->operations;
-    }
-
-    /**
-     * Set the value of operations
-     *
-     * @return  self
-     */ 
-    public function setOperations($operations)
-    {
-        $this->operations = $operations;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of user
-     */ 
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * Set the value of user
-     *
-     * @return  self
-     */ 
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    
-    //--- function for override
-    //--- abstract placé devant me permet d'indiquer si il est manquant ou pas dans dans la class enfant pour m'obliger à la définir dans la class enfant
-    abstract public function getnameCompte();
-    abstract public function getObservation();
-    
-    public abstract function __toString();
-
-
-    /**
      * Get the value of description
+     *
+     * @return  string
      */ 
     public function getDescription()
     {
@@ -303,9 +140,11 @@ abstract class Plateforme
     /**
      * Set the value of description
      *
+     * @param  string  $description
+     *
      * @return  self
      */ 
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
 
@@ -313,65 +152,21 @@ abstract class Plateforme
     }
 
     /**
-     * Get the value of ouvertureCpt
+     * Get the value of logoExchange
      */ 
-    public function getOuvertureCpt()
+    public function getLogoExchange()
     {
-        return $this->ouvertureCpt;
+        return $this->logoExchange;
     }
 
     /**
-     * Set the value of ouvertureCpt
+     * Set the value of logoExchange
      *
      * @return  self
      */ 
-    public function setOuvertureCpt($ouvertureCpt)
+    public function setLogoExchange($logoExchange)
     {
-        $this->ouvertureCpt = $ouvertureCpt;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of clotureCpt
-     */ 
-    public function getClotureCpt()
-    {
-        return $this->clotureCpt;
-    }
-
-    /**
-     * Set the value of clotureCpt
-     *
-     * @return  self
-     */ 
-    public function setClotureCpt($clotureCpt)
-    {
-        $this->clotureCpt = $clotureCpt;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of montantGarantie
-     *
-     * @return  float
-     */ 
-    public function getMontantGarantie()
-    {
-        return $this->montantGarantie;
-    }
-
-    /**
-     * Set the value of montantGarantie
-     *
-     * @param  float  $montantGarantie
-     *
-     * @return  self
-     */ 
-    public function setMontantGarantie(float $montantGarantie)
-    {
-        $this->montantGarantie = $montantGarantie;
+        $this->logoExchange = $logoExchange;
 
         return $this;
     }

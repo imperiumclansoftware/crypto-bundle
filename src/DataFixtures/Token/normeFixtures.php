@@ -5,8 +5,6 @@ namespace ICS\CryptoBundle\DataFixtures\Token;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
-use Symfony\Component\HttpKernel\KernelInterface;
 use ICS\CryptoBundle\Entity\Crypto\Token\Norme;
 
 class NormeFixtures extends Fixture implements FixtureGroupInterface
