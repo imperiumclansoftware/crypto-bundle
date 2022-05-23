@@ -30,6 +30,7 @@
             $loader->load('doctrine.yaml');
             // Loading specific bundle config
             $bundles = $container->getParameter('kernel.bundles');
+
             if(isset($bundles['NavigationBundle']))
             {
                 $loader->load('navigation.yaml');
@@ -49,6 +50,8 @@
             // if (isset($bundles['DashboardBundle'])) {
             //     $loader->load('dashboard.yaml');
             // }
+
+
         }
     }
     

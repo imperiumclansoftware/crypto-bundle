@@ -7,3 +7,83 @@ navigation:
           icon: fa fa-home
           route: ics-crypto-homepage
           order: 10
+
+    sidebar: 
+      brand: BrandText
+      brandRoute: homepage
+      brandIcon: ''
+      brandImage: ''
+      type: sidebar
+      searchenabled: false
+      searchroute: search
+      color: dark
+      fixed: sticky
+      items:
+        items1:
+          lib: 'Opération'
+          icon: ''
+          route: ''
+          roles: []
+          childs:
+            child1:
+              lib: 'Achat'
+              icon: ''
+              route: ''
+              roles: []
+            child2:
+              lib: 'Vente'
+              icon: ''
+              route: ''
+              roles: []
+            child3:
+              lib: 'Ajout'
+              icon: ''
+              route: ''
+              roles: []
+            child4:
+              lib: 'Retrait'
+              icon: ''
+              route: ''
+              roles: []
+        items2:
+          lib: 'Exchange'
+          icon: ''
+          route: ''
+          roles: []
+          childs:
+            child1:
+              lib: 'Choix1'
+              icon: ''
+              route: ''
+              roles: []
+            child2:
+              lib: 'Choix2'
+              icon: ''
+              route: ''
+              roles: []
+        items3:
+          lib: 'Générale'
+          icon: ''
+          route: ''
+          roles: []
+          childs:
+            child1:
+              lib: 'Bilan'
+              icon: ''
+              route: ''
+              roles: []
+        items4:
+          lib: 'Import'
+          icon: ''
+          route: ''
+          roles: []
+        items5:
+          lib: 'Export'
+          icon: ''
+          route: ''
+          roles: []
+        items6:
+          lib: 'Nouveauté'
+          icon: ''
+          route: ''
+          roles: []

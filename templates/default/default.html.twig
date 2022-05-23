@@ -1,97 +1,115 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
-    {% block title %}Default homepage{% endblock %}
-    {% block body %}
-        <h1>Cryptomonnaie - Day Taux</h1>
-<div class="row">
-    <div class="col-12">
-        {# <img src="/public/images/banner01.jpeg" alt=""> #}
-        <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/banner/coinBannerBlue.jpeg') }}" alt="coinBannerBlue">
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/fond/fondTechBlue.jpeg') }}" alt="fondTechBlue">
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/banner/bannerBTCGray.webp') }}" alt="bannerBTCGray">
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/neon/exchangeNeon.webp') }}" alt="exchangeNeon">
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/fond/japanChandelleCiel.jpeg') }}" alt="japanChandelleCiel">
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/neon/miningNeom.webp') }}" alt="miningNeom">
-    </div>
-</div>
-<div class="row">
-    <div class="card-deck">
-        <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
-                    <div class="card-body">
-                        {# <h4 class="card-title">Title</h4> #}
-                        <p class="card-text">
-                            <script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js"></script>
-                            <coingecko-coin-ticker-widget  coin-id="bitcoin" currency="eur" locale="fr"></coingecko-coin-ticker-widget>
-                        </p>
-                    </div>
-                </div>
+{% block title %}Homepage Geronimo{% endblock %}
+
+{% block body %}
+
+    {% if is_granted("ROLE_USER")  %}
+        {{ renderNavBar('main') }} 
+    {% endif %}
+    {% if is_granted("ROLE_USER")  %}
+        {{ renderNavBar('sidebar') }} 
+    {% endif %}
+
+    <div class="container-fluid">
+        <div class="row ml-0 pl-0">
+            <div class="col-md-1">
+                {% block sideMenu %}
+                    {% include "menu/menu.html.twig" %}
+                {# {% endblock sideMenu %} #}
             </div>
-            <div class="col-4">
+
+            <div class="col-md-11">
                 <div class="card">
-                    {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
-                    <div class="card-body">
-                        {# <h4 class="card-title">Title</h4> #}
-                        <p class="card-text">
-                            <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
-                            <coingecko-coin-list-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" locale="fr"></coingecko-coin-list-widget>
-                        </p>
-                    </div>
+                    {% block main %}
+                        <h1>Cryptomonnaie - Day Taux</h1>
+                        <div class="row">
+                            <div class="col-12">
+                                {# <img src="/public/images/banner01.jpeg" alt=""> #}
+                                <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/banner/coinBannerBlue.jpeg') }}" alt="coinBannerBlue">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/fond/fondTechBlue.jpeg') }}" alt="fondTechBlue">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/banner/bannerBTCGray.webp') }}" alt="bannerBTCGray">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/neon/exchangeNeon.webp') }}" alt="exchangeNeon">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/fond/japanChandelleCiel.jpeg') }}" alt="japanChandelleCiel">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="img-fluid  mb-3 mt-0" src="{{ asset('bundles/crypto/images/neon/miningNeom.webp') }}" alt="miningNeom">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card-deck">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="card">
+                                            {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                                            <div class="card-body">
+                                                {# <h4 class="card-title">Title</h4> #}
+                                                <p class="card-text">
+                                                    <script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js"></script>
+                                                    <coingecko-coin-ticker-widget  coin-id="bitcoin" currency="eur" locale="fr"></coingecko-coin-ticker-widget>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="card">
+                                            {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                                            <div class="card-body">
+                                                {# <h4 class="card-title">Title</h4> #}
+                                                <p class="card-text">
+                                                    <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
+                                                    <coingecko-coin-list-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" locale="fr"></coingecko-coin-list-widget>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        //--
+                            <script src="https://widgets.coingecko.com/coingecko-coin-heatmap-widget.js"></script>
+                            <coingecko-coin-heatmap-widget  height="400" locale="fr"></coingecko-coin-heatmap-widget>
+                        //---
+                            //---
+                            <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+                            <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" background-color="#ffffff" locale="fr"></coingecko-coin-price-marquee-widget>
+                        //---
+                            <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
+                            <coingecko-coin-compare-chart-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" locale="fr"></coingecko-coin-compare-chart-widget>
+                        //---
+                            <script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
+                            <coingecko-coin-price-static-headline-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" locale="fr"></coingecko-coin-price-static-headline-widget>
+                        //---
+                    {% endblock main %}
                 </div>
-            </div>
-            <div class="col-4">
             </div>
         </div>
     </div>
-</div>
-        //--
-
-        //--
-            <script src="https://widgets.coingecko.com/coingecko-coin-heatmap-widget.js"></script>
-            <coingecko-coin-heatmap-widget  height="400" locale="fr"></coingecko-coin-heatmap-widget>
-        //---
-             //---
-            <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
-            <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" background-color="#ffffff" locale="fr"></coingecko-coin-price-marquee-widget>
-        //---
-            <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
-            <coingecko-coin-compare-chart-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" locale="fr"></coingecko-coin-compare-chart-widget>
-        //---
-            <script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
-            <coingecko-coin-price-static-headline-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin,apecoin" currency="eur" locale="fr"></coingecko-coin-price-static-headline-widget>
-        //---
-            
-
-
-    {% endblock %}
-
-    {% block stylesheets %}
-    
-    {% endblock %}
-
-    {% block javascripts %}
-    
-    {% endblock %}
-    
+    <div class="row footer">
+        <footer class="col-sm-12 mt-2 mb-2" style="text-align: center;">
+            <p>Cryptomonnaies - Philippe Basuyau &copy; Imperium Clan Software</p>
+        </footer>
+    </div>
+{% endblock %}
+{# {% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %} #}
