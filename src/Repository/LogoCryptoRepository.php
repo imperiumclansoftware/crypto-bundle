@@ -5,11 +5,11 @@ namespace ICS\CryptoBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * LogoRepository
+ * LogoCryptoRepository
  * Repository de la classe Logo.
  *
  * @author Philippe Basuyau
  */
-class LogoRepository extends EntityRepository{
+class LogoCryptoRepository extends EntityRepository{
 
-}//Fin de la class LogoRepository
+}//Fin de la class LogoCryptoRepository

@@ -8,8 +8,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use function PHPSTORM_META\type;
-
 class TypeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

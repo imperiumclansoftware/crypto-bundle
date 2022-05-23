@@ -11,22 +11,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * ---  Utilité  controller ---.
+ * ---  Utilité  controller ---
  *
  * la gamme d'utilité de la cryptomonnaie
  *
  * @see /views/token/utilite
- * @see /src/Entity/Crypto/Token/Utilite
+ * @see /src/Entity/Crypto/Token/Utilite.php
  * @see /src/Repository/UtiliteRepository.php
  * @see /src/Service/UtiliteService.php
- * @see /src/Form/Type/Token/Utilite
+ * @see /src/Form/Type/Token/UtiliteType.php
  *
  * @author Philippe Basuyau 
  */
 class UtiliteController extends AbstractController
 {
     /**
-     * @Route("/token/utilite", name="crypto-token-utilite-homepage", methods={"GET"})
+     * @Route("/token/utilite", name="crypto_token_utilite_homepage", methods={"GET"})
      *  @author Philippe Basuyau
      */
     public function index(EntityManagerInterface $em): Response
@@ -35,7 +35,7 @@ class UtiliteController extends AbstractController
         return $this->render('Token/Utilite/index.html.twig', [
             'utilites' => $utilites,
         ]);
-    } // fin de la function index
+    }//--- fin de la function index
 
     /**
      * --- AddAction ---
@@ -68,17 +68,6 @@ class UtiliteController extends AbstractController
             'utilite' => $utilite,
         ]);
     } //--- Fin de la function addAction
-
-    /**
-     * @Route("/token/utilite/show/{id}", name="crypto-token-utilite-show", methods={"GET"})
-     * @author Philippe Basuyau
-     */
-    public function show(Utilite $utilite): Response
-    {
-        return $this->render('token/utilite/show.html.twig', [
-            'utilite' => $utilite,
-        ]);
-    } //--- Fin de la function show
 
     /**
      * --- EditAction ---

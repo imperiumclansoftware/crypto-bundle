@@ -9,12 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/contact", name="app_contact")
+     * @Route("/users/contact", name="crypto_users_contact_homepage", methods={"GET"})
+     *  @author Philippe Basuyau
      */
     public function index(): Response
     {
         return $this->render('contact/index.html.twig', [
             'controller_name' => 'ContactController',
         ]);
-    }
-}
+    }//--- Fin de la function index
+
+}//--- Fin de la class ContactController

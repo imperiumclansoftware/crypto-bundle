@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
  * @see Entity
  * @see Controller
  */
-class ComptesService{
+class PriceHistoriqueService{
 
     public function __construct(EntityManagerInterface $doctrine)
 	{
@@ -18,4 +18,4 @@ class ComptesService{
 
 
 
-}//Fin de la class ComptesService
+}//Fin de la class PriceHistoriqueService

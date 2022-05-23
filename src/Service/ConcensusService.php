@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
  * @see Entity
  * @see Controller
  */
-class LogoService{
+class ConcensusService{
 
     public function __construct(EntityManagerInterface $doctrine)
 	{
@@ -18,4 +18,4 @@ class LogoService{
 
 
 
-}//Fin de la class LogoService
+}//Fin de la class ConcensusService
