@@ -2,6 +2,8 @@
 
 namespace ICS\CryptoBundle\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
+use ICS\CryptoBundle\Entity\Crypto\Calcul\Achat;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,14 +24,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class AchatController extends AbstractController
 {
     /**
-     * @Route("/calcul/achat", name="crypto_calcul_achat_homepage", methods={"GET"})
+     * @Route("/calcul/achat", name="ics_crypto_calcul_achat_homepage", methods={"GET"})
      * @author Philippe Basuyau
      */
-    public function index(): Response
+    public function index(EntityManagerInterface $em): Response
     {
-        return $this->render('achat/index.html.twig', [
-            'controller_name' => 'AchatController',
-        ]);
+        $achats = $em
+            ->getRepository(Achat::class)
+            ->findAll();
+
+            return $this->render('calcul/achat/index.html.twig', [
+                'achats' => $achats,
+            ]);
     }//--- Fin de la function index
 
 }//--- Fin de la class AchatController

@@ -3,6 +3,7 @@
 namespace ICS\CryptoBundle\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use ICS\CryptoBundle\Entity\Crypto\Users\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,92 +26,100 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/users/user", name="crypto_user", methods={"GET"})
+     * @Route("/users/user", name="ics_crypto_users_user_homepage", methods={"GET"})
      * @author Philippe Basuyau
      */
-    public function index(): Response
+    public function index(EntityManagerInterface $em): Response
     {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        $users = $em
+            ->getRepository(User::class)
+            ->findAll();
+
+            return $this->render('users/user/index.html.twig', [
+                'users' => $users,
+            ]);
     }//--- Fin de la function index
 
     /**
      * --- AddAction ---
-     * @Route("/token/utilite/add", name="crypto-token-utilite-add")
+     * @Route("/users/user/add", name="ics_crypto_users_user_add")
      * @author Philippe Basuyau
      */
     public function addAction(Request $request, EntityManagerInterface $em): Response
     {
-        $utilite = new User();
+        $user = new User();
 
-        $form = $this->createForm(UserType::class, $utilite);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $utilite = $form->getData();
+            $user = $form->getData();
 
-            $utilite->setUtilite();
-            $utilite->setDescription();
+            $user->setName();
+            $user->setSurname();
+            $user->setPlateformes();
+            $user->setContacts();
 
-            $em->persist($utilite);
+            $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success',"L'utilité : ".$utilite->getUtilite().' a bien été créé');
+            $this->addFlash('success',"L'utilisateur : ".$user->getName().".".$user->getSurname().' a bien été créé');
 
-            return $this->redirectToRoute('crypto-token-utilite-homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('crypto_users_user_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/utilite/form/form.html.twig', [
+        return $this->render('users/user/form/form.html.twig', [
             'form' => $form->createView(),
-            'utilite' => $utilite,
+            'user' => $user,
         ]);
     } //--- Fin de la function addAction
 
     /**
      * --- EditAction ---
-     * @Route("/token/utilite/{id}/edit", name="crypto-token-utilite-edit", methods={"GET", "POST"} )
+     * @Route("/users/user/edit", name="ics_crypto_users_user_edit", methods={"GET", "POST"} )
      * @author Philippe Basuyau
      */
-    public function editAction(EntityManagerInterface $em, Request $request, $id,  Utilite $utilite): Response
+    public function editAction(ManagerRegistry $doctrine, EntityManagerInterface $em, Request $request, $id,  User $user): Response
     {
-        $form = $this->createForm(UtiliteType::class, $utilite);
+        $user = $doctrine->getRepository(User::class)->find($id);
+
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $utilite = $form->getData();
+            $user = $form->getData();
 
-            $entityManager = $this->$em->getManager();
-            $entityManager->persist($utilite);
-            $entityManager->flush();
+            $em = $this->$em->getManager();
+            $em->persist($user);
+            $em->flush();
 
-            $this->addFlash('success', "L'utilité ".$utilite->getutilite().' a bien été modifiée');
+            $this->addFlash('success', "L'utilisateur  ".$user->getName().".".$user->getSurname().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto-token-utilite-homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('crypto_users_user_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/utilite/form/form.html.twig', [
+        return $this->render('users/user/form/form.html.twig', [
             'form' => $form->createView(),
-            'utilite' => $utilite,
+            'user' => $user,
             ]);
     } //--- Fin de la function editAction
 
     /**
      * --- DeleteAction ---
      *
-     * @Route("/token/utilite/{id}/delete", name="crypto-token-utilite-delete", methods={"POST"})
+     * @Route("/users/user/delete", name="ics_crypto_users_user_delete", methods={"POST"})
      * @author Philippe Basuyau
      */
-    public function deleteAction(Request $request, EntityManagerInterface $em, Utilite $utilite): Response
+    public function deleteAction(Request $request, EntityManagerInterface $em, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$utilite->getId(), $request->request->get('_token'))) {
-            $em->remove($utilite);
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $em->remove($user);
             $em->flush();
         }
-        $this->addFlash('warning', "L'utilité :".$utilite->getUtilite().'  a été supprimée.');
+        $this->addFlash('warning', "L'utilisateur  :".$user->getName().".".$user->getSurname().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto-token-utilite-homepage', [], Response::HTTP_SEE_OTHER);
-    }
+        return $this->redirectToRoute('crypto_users_user_homepage', [], Response::HTTP_SEE_OTHER);
+    }//--- Fin de la function Delete
 
 }//--- Fin de la class UserController
 

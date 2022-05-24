@@ -260,4 +260,28 @@ class Compte extends Plateforme
 
         return $this;
     }
+
+    /**
+     * Get the value of operations
+     *
+     * @return  ArrayCollection
+     */ 
+    public function getOperations()
+    {
+        return $this->operations;
+    }
+
+    /**
+     * Set the value of operations
+     *
+     * @param  ArrayCollection  $operations
+     *
+     * @return  self
+     */ 
+    public function setOperations(ArrayCollection $operations)
+    {
+        $this->operations = $operations;
+
+        return $this;
+    }
 }//--- FIn de la class Compte

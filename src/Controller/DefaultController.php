@@ -9,7 +9,7 @@
     class DefaultController extends AbstractController
     {
         /**
-         * @Route("/", name="ics-crypto-homepage")
+         * @Route("/", name="ics_crypto_homepage")
          * @author Philippe Basuyau
          */
         public function index()
