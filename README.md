@@ -38,9 +38,9 @@ Version:
          "ics/ssi-bundle": "^0.2.6",
          "ics/tools-bundle": "^0.0.1",
          
-         Pour le menu et la homepage de easyAdmin
-         dashboardController.php
-                 public function configureMenuItems(): iterable
+Pour le menu et la homepage de easyAdmin
+dashboardController.php
+     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         
