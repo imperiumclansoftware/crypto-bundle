@@ -2,6 +2,7 @@
 Bundle de gestion de cryptos monnaies multi-plateforme
 Synfony 5.4
 Php >=7.4.29
+font-awesome 6.1.1
 
 Add bundle to your developpement application
 
