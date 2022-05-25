@@ -40,6 +40,7 @@ Version:
          
 Pour le menu et la homepage de easyAdmin
 dashboardController.php
+
         public function configureMenuItems(): iterable
         {
             yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
