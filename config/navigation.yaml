@@ -10,13 +10,13 @@ navigation:
         items1:
           lib: 'Opération'
           icon: fa fa-coins
-          route: ics_crypto_homepage
+          route: ics_crypto_calcul_operation_homepage
           roles: []
           order: 11
         items2:
           lib: 'Exchange'
-          icon: fa fa-book-dead
-          route: ics_crypto_homepage
+          icon: fas fa-exchange-alt
+          route: ics_crypto_comptes_compte_homepage
           roles: []
           order: 13
         items3:
@@ -27,13 +27,13 @@ navigation:
           order: 12
         items4:
           lib: 'Import'
-          icon: fa fa-file-import
+          icon: fas fa-file-import
           route: ics_crypto_homepage
           roles: []
           order: 14
         items5:
           lib: 'Export'
-          icon: fa fa-file-export
+          icon: fas fa-file-export
           route: ics_crypto_homepage
           roles: []
           order: 15
