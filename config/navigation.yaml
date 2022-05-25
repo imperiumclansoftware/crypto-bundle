@@ -5,12 +5,19 @@ navigation:
         crypto-homepage:
           lib: crypto
           icon: fa fa-home
-          route: ics-crypto-homepage
+          route: ics_crypto_homepage
           order: 10
+        items1:
+          lib: 'Opération'
+          icon: fa fa-coins
+          route: ics_crypto_homepage
+          roles: []
+        items2:
+
 
     sidebar: 
-      brand: BrandText
-      brandRoute: homepage
+      brand: Accueil
+      brandRoute: ics_crypto_homepage
       brandIcon: ''
       brandImage: ''
       type: sidebar
@@ -21,69 +28,31 @@ navigation:
       items:
         items1:
           lib: 'Opération'
-          icon: ''
-          route: ''
+          icon: fa fa-home
+          route: ics_crypto_homepage
           roles: []
-          childs:
-            child1:
-              lib: 'Achat'
-              icon: ''
-              route: ''
-              roles: []
-            child2:
-              lib: 'Vente'
-              icon: ''
-              route: ''
-              roles: []
-            child3:
-              lib: 'Ajout'
-              icon: ''
-              route: ''
-              roles: []
-            child4:
-              lib: 'Retrait'
-              icon: ''
-              route: ''
-              roles: []
         items2:
           lib: 'Exchange'
-          icon: ''
-          route: ''
+          icon: fa fa-home
+          route: ics_crypto_homepage
           roles: []
-          childs:
-            child1:
-              lib: 'Choix1'
-              icon: ''
-              route: ''
-              roles: []
-            child2:
-              lib: 'Choix2'
-              icon: ''
-              route: ''
-              roles: []
         items3:
           lib: 'Générale'
-          icon: ''
-          route: ''
+          icon: fa fa-home
+          route: ics_crypto_homepage
           roles: []
-          childs:
-            child1:
-              lib: 'Bilan'
-              icon: ''
-              route: ''
-              roles: []
         items4:
           lib: 'Import'
-          icon: ''
-          route: ''
+          icon: fa fa-home
+          route: ics_crypto_homepage
           roles: []
         items5:
           lib: 'Export'
-          icon: ''
-          route: ''
+          icon: fa fa-home
+          route: ics_crypto_homepage
           roles: []
         items6:
           lib: 'Nouveauté'
-          icon: ''
-          route: ''
+          icon: fa fa-home
+          route: ics_crypto_homepage
           roles: []

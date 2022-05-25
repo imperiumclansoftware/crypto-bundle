@@ -7,17 +7,17 @@
     {% if is_granted("ROLE_USER")  %}
         {{ renderNavBar('main') }} 
     {% endif %}
-    {# {% if is_granted("ROLE_USER")  %}
+    {% if is_granted("ROLE_USER")  %}
         {{ renderNavBar('sidebar') }} 
-    {% endif %} #}
+    {% endif %}
 
     <div class="container-fluid">
         <div class="row ml-0 pl-0">
-            {# <div class="col-md-1"> #}
+            <div class="col-md-1">
                 {# {% block sideMenu %} #}
-                    {# {% include "menu/menu.html.twig" %} #}
+                    {# {% include "bundles/crypto/sidebar/sidebar.html.twig" %} #}
                 {# {% endblock sideMenu %} #}
-            {# </div> #}
+            </div>
 
             <div class="col-md-12">
                 <div class="card">
