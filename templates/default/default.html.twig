@@ -1,25 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Homepage Geronimo{% endblock %}
+{% block title %}Homepage Cryptomonnaie{% endblock %}
 
 {% block body %}
 
     {% if is_granted("ROLE_USER")  %}
         {{ renderNavBar('main') }} 
     {% endif %}
-    {% if is_granted("ROLE_USER")  %}
-        {{ renderNavBar('sidebar') }} 
-    {% endif %}
 
     <div class="container-fluid">
         <div class="row ml-0 pl-0">
             <div class="col-md-1">
-                {# {% block sideMenu %} #}
-                    {# {% include "bundles/crypto/sidebar/sidebar.html.twig" %} #}
-                {# {% endblock sideMenu %} #}
+                {# {% include "../sidebar/sidebar.html.twig" %} #}
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-11">
                 <div class="card">
                     {% block main %}
                         <h1>Cryptomonnaie - Day Taux</h1>

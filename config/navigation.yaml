@@ -12,47 +12,34 @@ navigation:
           icon: fa fa-coins
           route: ics_crypto_homepage
           roles: []
-        items2:
-
-
-    sidebar: 
-      brand: Accueil
-      brandRoute: ics_crypto_homepage
-      brandIcon: ''
-      brandImage: ''
-      type: sidebar
-      searchenabled: false
-      searchroute: search
-      color: dark
-      fixed: sticky
-      items:
-        items1:
-          lib: 'Opération'
-          icon: fa fa-home
-          route: ics_crypto_homepage
-          roles: []
+          order: 11
         items2:
           lib: 'Exchange'
-          icon: fa fa-home
+          icon: fa fa-book-dead
           route: ics_crypto_homepage
           roles: []
+          order: 13
         items3:
           lib: 'Générale'
-          icon: fa fa-home
+          icon: fa fa-atom
           route: ics_crypto_homepage
           roles: []
+          order: 12
         items4:
           lib: 'Import'
-          icon: fa fa-home
+          icon: fa fa-file-import
           route: ics_crypto_homepage
           roles: []
+          order: 14
         items5:
           lib: 'Export'
-          icon: fa fa-home
+          icon: fa fa-file-export
           route: ics_crypto_homepage
           roles: []
+          order: 15
         items6:
           lib: 'Nouveauté'
-          icon: fa fa-home
+          icon: fa fa-newspaper
           route: ics_crypto_homepage
           roles: []
+          order: 16
