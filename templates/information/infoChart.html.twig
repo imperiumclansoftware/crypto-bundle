@@ -1,0 +1,78 @@
+{# affichage de chart des cryptos #}
+{% extends '@Crypto/default/default.html.twig' %}
+
+{% block main %}
+    <h1 class="text-light text-center mt-4 mb-4">Cryptomonnaie - Day Taux</h1>
+    <div class="row">
+        <div class="card-deck">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                        <div class="card-body">
+                            <h4 class="card-title">Favoris</h4>
+                            <p class="card-text">
+                                <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
+                                <coingecko-coin-list-widget  coin-ids="ripple, solana, polkadot  " currency="eur" locale="fr"><coingecko-coin-list-widget>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                        <div class="card-body">
+                            <h4 class="card-title">Outsider</h4>
+                            <p class="card-text">
+                                <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
+                                <coingecko-coin-list-widget  coin-ids="decentraland" currency="eur" locale="fr"></coingecko-coin-list-widget>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card mt-3 mb-4">
+                        {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                        <div class="card-body">
+                            {# <h4 class="card-title">Title</h4> #}
+                            <p class="card-text">
+                                <script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js"></script>
+                                <coingecko-coin-ticker-widget  coin-id="bitcoin" currency="eur" locale="fr"></coingecko-coin-ticker-widget>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                        <div class="card-body">
+                            {# <h4 class="card-title">Title</h4> #}
+                            <p class="card-text">
+                                <script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js"></script>
+                                <coingecko-coin-ticker-widget  coin-id="ethereum" currency="eur" locale="fr"></coingecko-coin-ticker-widget>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                        <div class="card-body">
+                            <h4 class="card-title">A surveiller</h4>
+                            <p class="card-text">
+                                <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
+                                <coingecko-coin-list-widget  coin-ids="apecoin" currency="eur" locale="fr"></coingecko-coin-list-widget>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        {# <img class="card-img-top" src="holder.js/100x180/" alt=""> #}
+                        <div class="card-body">
+                            <h4 class="card-title">New</h4>
+                            <p class="card-text">
+                                <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
+                                <coingecko-coin-list-widget  coin-ids="apecoin" currency="eur" locale="fr"></coingecko-coin-list-widget>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
