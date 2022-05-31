@@ -2,17 +2,24 @@
 {# {% include 'sideBard/sidebard.html.twig' %} #}
 {% trans_default_domain("crypto") %}
 
-<div class="card nav nav-pills nav-stacked " id="menuSideBarFix">
+<div class="card nav nav-pills nav-stacked sticky-top shadow rounded-0 side-menu" style="top:56px; "id="menuSideBarFix">
     <h5 class="card-header alert-primary" style="opacity: 0.7; ">
         <span class="fab fa-btc br-4"></span> 
         Crypto
     </h5>
-    <a href="#" class="list-group-item">Dashboard</a>
-    <a href="#" class="list-group-item">Comptes</a>
-    <a href="#" class="list-group-item">Opération</a>
-    <a href="#" class="list-group-item">Cashback</a>
-    <a href="#" class="list-group-item">Earn</a>
-    <a href="#" class="list-group-item">SuperChargeur</a>
-    <a href="#" class="list-group-item">SmartContrat</a>
-    <a href="#" class="list-group-item">Admin</a>
+    <nav>
+        <a href="{{path('ics_crypto_homepage')}}" class="list-group-item"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
+        <a href="{{path('ics_crypto_comptes_compte_homepage')}}" class="list-group-item"><i class="fa fa-list"></i> Comptes</a>
+        <a href="{{path('ics_crypto_calcul_operation_homepage')}}" class="list-group-item"><i class="fas fa-calculator"></i> Opération</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fas fa-chart-line"></i> Chart</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fas fa-dollar-sign"></i> Cashback</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fas fa-graduation-cap"></i> Earn</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fab fa-superpowers"></i> SuperCharge</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fas fa-file-contract"></i> SmartContrat</a>
+        <a href="{{path('ics_crypto_comptes_compte_homepage')}}" class="list-group-item"><i class="fa fa-info-circle"></i> Information</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fas fa-file-import"></i> Import</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fas fa-file-export"></i> Export</a>
+        <a href="{{path('ics_crypto_construction')}}" class="list-group-item"><i class="fas fa-user-cog"></i> Admin</a>
+    </nav>
 </div>
+ics_crypto_comptes_compte_homepage
