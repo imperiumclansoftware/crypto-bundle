@@ -35,7 +35,7 @@ class UserController extends AbstractController
             ->getRepository(User::class)
             ->findAll();
 
-            return $this->render('users/user/index.html.twig', [
+            return $this->render('@Crypto/users/user/index.html.twig', [
                 'users' => $users,
             ]);
     }//--- Fin de la function index
@@ -65,10 +65,10 @@ class UserController extends AbstractController
 
             $this->addFlash('success',"L'utilisateur : ".$user->getName().".".$user->getSurname().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_users_user_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_users_user_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('users/user/form/form.html.twig', [
+        return $this->render('@Crypto/users/user/form/form.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
         ]);
@@ -95,10 +95,10 @@ class UserController extends AbstractController
 
             $this->addFlash('success', "L'utilisateur  ".$user->getName().".".$user->getSurname().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_users_user_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_users_user_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('users/user/form/form.html.twig', [
+        return $this->render('@Crypto/users/user/form/form.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
             ]);

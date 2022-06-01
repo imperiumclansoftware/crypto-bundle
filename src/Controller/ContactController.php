@@ -23,7 +23,7 @@ class ContactController extends AbstractController
             ->getRepository(Contact::class)
             ->findAll();
 
-            return $this->render('token/contact/index.html.twig', [
+            return $this->render('@Crypto/token/contact/index.html.twig', [
                 'contacts' => $contacts,
             ]);
     }//--- Fin de la function index
@@ -52,10 +52,10 @@ class ContactController extends AbstractController
 
             $this->addFlash('success',"L'adresse mail : ".$contact->getAdressMail().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_users_contact_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_users_contact_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('users/contact/form/form.html.twig', [
+        return $this->render('@Crypto/users/contact/form/form.html.twig', [
             'form' => $form->createView(),
             'contact' => $contact,
         ]);
@@ -82,10 +82,10 @@ class ContactController extends AbstractController
 
             $this->addFlash('success', "L'adresse mail' : ".$contact->getAdressMail().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_users_contact_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_users_contact_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('users/contact/form/form.html.twig', [
+        return $this->render('@Crypto/users/contact/form/form.html.twig', [
             'form' => $form->createView(),
             'contact' => $contact,
             ]);
@@ -105,7 +105,7 @@ class ContactController extends AbstractController
         }
         $this->addFlash('warning', "L'adresse mail' : ".$contact->getAdressMail().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_users_contact_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_users_contact_homepage', [], Response::HTTP_SEE_OTHER);
     }//---Fin de la function Delete
 
 }//--- Fin de la class ContactController

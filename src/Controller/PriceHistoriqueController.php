@@ -37,7 +37,7 @@ class PriceHistoriqueController extends AbstractController
             ->getRepository(PriceHistorique::class)
             ->findAll();
 
-            return $this->render('token/priceHistorique/index.html.twig', [
+            return $this->render('@Crypto/token/priceHistorique/index.html.twig', [
                 'priceHistoriques' => $priceHistoriques,
             ]);
     }//--- Fin de la function index
@@ -65,10 +65,10 @@ class PriceHistoriqueController extends AbstractController
 
             $this->addFlash('success', 'Le prix a bien été créé');
 
-            return $this->redirectToRoute('crypto_token_priceHistorique_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_priceHistorique_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/priceHistorique/form/form.html.twig', [
+        return $this->render('@Crypto/token/priceHistorique/form/form.html.twig', [
             'form' => $form->createView(),
             'priceHistorique' => $priceHistorique,
         ]);
@@ -95,10 +95,10 @@ class PriceHistoriqueController extends AbstractController
 
             $this->addFlash('success', 'Le prix a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_token_priceHistorique_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_priceHistorique_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/priceHistorique/form/form.html.twig', [
+        return $this->render('@Crypto/token/priceHistorique/form/form.html.twig', [
             'form' => $form->createView(),
             'priceHistorique' => $priceHistorique,
             ]);
@@ -118,7 +118,7 @@ class PriceHistoriqueController extends AbstractController
         }
         $this->addFlash('warning', 'Le prix a été supprimée.');
 
-        return $this->redirectToRoute('crypto_token_priceHistorique_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_token_priceHistorique_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class PriceHistoriqueController

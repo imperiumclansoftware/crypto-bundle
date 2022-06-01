@@ -33,7 +33,7 @@ class logoExchange
      * @var ArrayCollection
      * @ORM\OneToOne(targetEntity="Plateforme", mappedBy="logoExchange")
      */
-    private $plateformes;
+    // private $plateformes;
 
     //--- Le Construc ---
     public function __construct()

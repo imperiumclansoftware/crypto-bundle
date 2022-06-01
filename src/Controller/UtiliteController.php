@@ -36,7 +36,7 @@ class UtiliteController extends AbstractController
             ->getRepository(Utilite::class)
             ->findAll();
 
-            return $this->render('token/utilite/index.html.twig', [
+            return $this->render('@Crypto/token/utilite/index.html.twig', [
                 'utilites' => $utilites,
             ]);
     }//--- fin de la function index
@@ -64,10 +64,10 @@ class UtiliteController extends AbstractController
 
             $this->addFlash('success',"L'utilité : ".$utilite->getUtilite().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_token_utilite_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_utilite_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/utilite/form/form.html.twig', [
+        return $this->render('@Crypto/token/utilite/form/form.html.twig', [
             'form' => $form->createView(),
             'utilite' => $utilite,
         ]);
@@ -94,10 +94,10 @@ class UtiliteController extends AbstractController
 
             $this->addFlash('success', "L'utilité ".$utilite->getutilite().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_token_utilite_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_utilite_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/utilite/form/form.html.twig', [
+        return $this->render('@Crypto/token/utilite/form/form.html.twig', [
             'form' => $form->createView(),
             'utilite' => $utilite,
             ]);
@@ -117,7 +117,7 @@ class UtiliteController extends AbstractController
         }
         $this->addFlash('warning', "L'utilité :".$utilite->getUtilite().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_token_utilite_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_token_utilite_homepage', [], Response::HTTP_SEE_OTHER);
     }//-- Fin de la function delete
 
 }//--- Fin de la class UtiliteController

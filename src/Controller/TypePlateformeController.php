@@ -36,7 +36,7 @@ class TypePlateformeController extends AbstractController
             ->getRepository(TypePlateforme::class)
             ->findAll();
 
-            return $this->render('comptes/typeplateforme/index.html.twig', [
+            return $this->render('@Crypto/comptes/typeplateforme/index.html.twig', [
                 'typePlateformes' => $typePlateformes,
             ]);
     }//--- Fin de la function index
@@ -63,10 +63,10 @@ class TypePlateformeController extends AbstractController
 
             $this->addFlash('success',"Le type de plateforme : ".$typeplateforme->getlibelle().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_comptes_typeplateforme_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_comptes_typeplateforme_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/typeplateforme/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/typeplateforme/form/form.html.twig', [
             'form' => $form->createView(),
             'typeplateforme' => $typeplateforme,
         ]);
@@ -93,10 +93,10 @@ class TypePlateformeController extends AbstractController
 
             $this->addFlash('success', "Le type de plateforme : ".$typeplateforme->getlibelle().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_comptes_typeplateforme_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_comptes_typeplateforme_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/typeplateforme/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/typeplateforme/form/form.html.twig', [
             'form' => $form->createView(),
             'typeplateforme' => $typeplateforme,
             ]);
@@ -116,7 +116,7 @@ class TypePlateformeController extends AbstractController
         }
         $this->addFlash('warning', "Le type de plateforme : ".$typeplateforme->getlibelle().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_comptes_typeplateforme_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_comptes_typeplateforme_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class TypePlateformeController

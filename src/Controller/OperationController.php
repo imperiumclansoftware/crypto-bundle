@@ -36,7 +36,7 @@ class OperationController extends AbstractController
             ->getRepository(Operation::class)
             ->findAll();
 
-            return $this->render('calcul/operation/index.html.twig', [
+            return $this->render('@Crypto/calcul/operation/index.html.twig', [
                 'operations' => $operations,
             ]);
     }//--- Fin de la function index
@@ -72,10 +72,10 @@ class OperationController extends AbstractController
 
             $this->addFlash('success',"La transaction du ".$operation->getCryptoAchete()." en ".$operation->getCryptoAchat().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_calcul_operation_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_calcul_operation_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('calcul/operation/form/form.html.twig', [
+        return $this->render('@Crypto/calcul/operation/form/form.html.twig', [
             'form' => $form->createView(),
             'operation' => $operation,
         ]);
@@ -102,10 +102,10 @@ class OperationController extends AbstractController
 
             $this->addFlash('success', "La transaction du ".$operation->getCryptoAchete()." en ".$operation->getCryptoAchat().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_calcul_operation_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_calcul_operation_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('calcul/operation/form/form.html.twig', [
+        return $this->render('@Crypto/calcul/operation/form/form.html.twig', [
             'form' => $form->createView(),
             'operation' => $operation,
             ]);
@@ -125,7 +125,7 @@ class OperationController extends AbstractController
         }
         $this->addFlash('warning', "La transaction du ".$operation->getCryptoAchete()." en ".$operation->getCryptoAchat().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_calcul_operation_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_calcul_operation_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class OperationController

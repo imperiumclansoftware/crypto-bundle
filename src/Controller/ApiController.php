@@ -36,7 +36,7 @@ class ApiController extends AbstractController
             ->getRepository(Api::class)
             ->findAll();
 
-            return $this->render('token/api/index.html.twig', [
+            return $this->render('@Crypto/token/api/index.html.twig', [
                 'apis' => $apis,
             ]);
     }//--- Fin de la function Index
@@ -66,10 +66,10 @@ class ApiController extends AbstractController
 
             $this->addFlash('success', "Le token : ".$api->getLibelleCoin().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_token_api_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_api_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/api/form/form.html.twig', [
+        return $this->render('@Crypto/token/api/form/form.html.twig', [
             'form' => $form->createView(),
             'api' => $api,
         ]);
@@ -96,10 +96,10 @@ class ApiController extends AbstractController
 
             $this->addFlash('success', "Le token : ".$api->getLibelleCoin().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_token_api_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_api_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/api/form/form.html.twig', [
+        return $this->render('@Crypto/token/api/form/form.html.twig', [
             'form' => $form->createView(),
             'api' => $api,
             ]);
@@ -119,7 +119,7 @@ class ApiController extends AbstractController
         }
         $this->addFlash('warning', "Le token : ".$api->getLibelleCoin().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_token_api_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_token_api_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
     
 }//--- Fin de la class Api

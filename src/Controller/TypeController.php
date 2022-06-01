@@ -36,7 +36,7 @@ class TypeController extends AbstractController
             ->getRepository(Type::class)
             ->findAll();
 
-            return $this->render('calcul/type/index.html.twig', [
+            return $this->render('@Crypto/calcul/type/index.html.twig', [
                 'types' => $types,
             ]);
     }//--- fin de la function index
@@ -63,10 +63,10 @@ class TypeController extends AbstractController
 
             $this->addFlash('success',"Le type de gain: ".$type->getLibelle().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_calcul_type_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_calcul_type_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('calcul/type/form/form.html.twig', [
+        return $this->render('@Crypto/calcul/type/form/form.html.twig', [
             'form' => $form->createView(),
             'type' => $type,
         ]);
@@ -93,10 +93,10 @@ class TypeController extends AbstractController
 
             $this->addFlash('success', "Le type de gain: ".$type->getLibelle().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_calcul_type_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_calcul_type_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('calcul/type/form/form.html.twig', [
+        return $this->render('@Crypto/calcul/type/form/form.html.twig', [
             'form' => $form->createView(),
             'type' => $type,
             ]);
@@ -116,7 +116,7 @@ class TypeController extends AbstractController
         }
         $this->addFlash('warning', "Le type de gain: ".$type->getLibelle().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_calcul_type_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_calcul_type_homepage', [], Response::HTTP_SEE_OTHER);
     }//-- Fin de la function Delete
 
 }//--- Fin de la class TypeController

@@ -36,7 +36,7 @@ class ConcensusController extends AbstractController
             ->getRepository(Api::class)
             ->findAll();
 
-            return $this->render('token/concensus/index.html.twig', [
+            return $this->render('@Crypto/token/concensus/index.html.twig', [
                 'concensuss' => $concensuss,
             ]);
     }//--- Fin de la function Index
@@ -64,10 +64,10 @@ class ConcensusController extends AbstractController
 
             $this->addFlash('success',"Le concensus : ".$concensus->getLibelle().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_token_concensus_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_concensus_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/concensus/form/form.html.twig', [
+        return $this->render('@Crypto/token/concensus/form/form.html.twig', [
             'form' => $form->createView(),
             'conensus' => $concensus,
         ]);
@@ -94,10 +94,10 @@ class ConcensusController extends AbstractController
 
             $this->addFlash('success', "Le concensus : ".$concensus->getLibelle().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_token_concensus_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_concensus_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/concensus/form/form.html.twig', [
+        return $this->render('@Crypto/token/concensus/form/form.html.twig', [
             'form' => $form->createView(),
             'concensus' => $concensus,
             ]);
@@ -117,7 +117,7 @@ class ConcensusController extends AbstractController
         }
         $this->addFlash('warning', "Le concensus : ".$concensus->getLibelle().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_token_concensus_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_token_concensus_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class Concensus

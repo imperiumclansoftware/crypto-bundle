@@ -36,7 +36,7 @@ class NormeController extends AbstractController
             ->getRepository(Norme::class)
             ->findAll();
 
-            return $this->render('token/norme/index.html.twig', [
+            return $this->render('@Crypto/token/norme/index.html.twig', [
                 'normes' => $normes,
             ]);
     }//--- Fin de la function index
@@ -64,10 +64,10 @@ class NormeController extends AbstractController
 
             $this->addFlash('success','La norme : '.$norme->getLibelle().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_token_norme_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_norme_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/norme/form/form.html.twig', [
+        return $this->render('@Crypto/token/norme/form/form.html.twig', [
             'form' => $form->createView(),
             'norme' => $norme,
         ]);
@@ -94,10 +94,10 @@ class NormeController extends AbstractController
 
             $this->addFlash('success', "La norme : ".$norme->getLibelle().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_token_norme_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_norme_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/norme/form/form.html.twig', [
+        return $this->render('@Crypto/token/norme/form/form.html.twig', [
             'form' => $form->createView(),
             'norme' => $norme,
             ]);
@@ -117,7 +117,7 @@ class NormeController extends AbstractController
         }
         $this->addFlash('warning', "La norme : ".$norme->getLibelle().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_token_norme_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_token_norme_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class NormeController

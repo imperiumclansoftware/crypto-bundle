@@ -38,7 +38,7 @@ class GainController extends AbstractController
             ->getRepository(Gain::class)
             ->findAll();
 
-            return $this->render('calcul/gain/index.html.twig', [
+            return $this->render('@Crypto/calcul/gain/index.html.twig', [
                 'gains' => $gains,
             ]);
     }//--- Fin de la function index
@@ -65,10 +65,10 @@ class GainController extends AbstractController
 
             $this->addFlash('success',"Le gain a bien été créé.");
 
-            return $this->redirectToRoute('crypto_calcul_gain_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_calcul_gain_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('calcul/gain/form/form.html.twig', [
+        return $this->render('@Crypto/calcul/gain/form/form.html.twig', [
             'form' => $form->createView(),
             'gain' => $gain,
         ]);
@@ -95,10 +95,10 @@ class GainController extends AbstractController
 
             $this->addFlash('success', "Le gain a bien été modifié.");
 
-            return $this->redirectToRoute('crypto_calcul_gain_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_calcul_gain_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('calcul/gain/form/form.html.twig', [
+        return $this->render('@Crypto/calcul/gain/form/form.html.twig', [
             'form' => $form->createView(),
             'gain' => $gain,
             ]);
@@ -118,7 +118,7 @@ class GainController extends AbstractController
         }
         $this->addFlash('warning', "Le gain a été supprimée.");
 
-        return $this->redirectToRoute('crypto_calcul_gain_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_calcul_gain_homepage', [], Response::HTTP_SEE_OTHER);
     }//---Fin de la function Delete
 
 

@@ -37,7 +37,7 @@ class CompteController extends AbstractController
             ->getRepository(Compte::class)
             ->findAll();
 
-            return $this->render('comptes/compte/index.html.twig', [
+            return $this->render('@Crypto/comptes/compte/index.html.twig', [
                 'comptes' => $comptes,
             ]);
     }//---Fin de la function index
@@ -70,10 +70,10 @@ class CompteController extends AbstractController
 
             $this->addFlash('success',"Le compte avec le nom : ".$compte->getNameCompte().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_comptes_compte_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_comptes_compte_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/compte/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/compte/form/form.html.twig', [
             'form' => $form->createView(),
             'compte' => $compte,
         ]);
@@ -100,10 +100,10 @@ class CompteController extends AbstractController
 
             $this->addFlash('success', "Le compte avec le nom : ".$compte->getNameCompte().' a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_comptes_compte_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_comptes_compte_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/compte/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/compte/form/form.html.twig', [
             'form' => $form->createView(),
             'compte' => $compte,
             ]);
@@ -128,7 +128,7 @@ class CompteController extends AbstractController
         
         $this->addFlash('warning', "Le compte avec le nom : ".$compte->getNameCompte().'  a été cloturé.');
 
-        return $this->redirectToRoute('crypto_comptes_compte_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_comptes_compte_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 

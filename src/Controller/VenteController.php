@@ -34,7 +34,7 @@ class VenteController extends AbstractController
             ->getRepository(Vente::class)
             ->findAll();
 
-            return $this->render('calcul/vente/index.html.twig', [
+            return $this->render('@Crypto/calcul/vente/index.html.twig', [
                 'ventes' => $ventes,
             ]);
     }//--- Fin de la function index

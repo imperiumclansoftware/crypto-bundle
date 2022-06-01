@@ -33,7 +33,7 @@ class AchatController extends AbstractController
             ->getRepository(Achat::class)
             ->findAll();
 
-            return $this->render('calcul/achat/index.html.twig', [
+            return $this->render('@Crypto/calcul/achat/index.html.twig', [
                 'achats' => $achats,
             ]);
     }//--- Fin de la function index

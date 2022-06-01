@@ -36,7 +36,7 @@ class LogoCryptoController extends AbstractController
             ->getRepository(LogoCrypto::class)
             ->findAll();
 
-            return $this->render('token/logoCrypto/index.html.twig', [
+            return $this->render('@Crypto/token/logoCrypto/index.html.twig', [
                 'logoCryptos' => $logoCryptos,
             ]);
     }//---Fin de function index
@@ -64,10 +64,10 @@ class LogoCryptoController extends AbstractController
 
             $this->addFlash('success','Le logo a bien été créé');
 
-            return $this->redirectToRoute('crypto_token_logo_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_logo_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/logoCrypto/form/form.html.twig', [
+        return $this->render('@Crypto/token/logoCrypto/form/form.html.twig', [
             'form' => $form->createView(),
             'logoCrypto' => $logoCrypto,
         ]);
@@ -94,10 +94,10 @@ class LogoCryptoController extends AbstractController
 
             $this->addFlash('success', 'Le logo  a bien été modifiée');
 
-            return $this->redirectToRoute('crypto_token_logo_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_logo_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/logoCrypto/form/form.html.twig', [
+        return $this->render('@Crypto/token/logoCrypto/form/form.html.twig', [
             'form' => $form->createView(),
             'logoCrypto' => $logoCrypto,
             ]);
@@ -117,7 +117,7 @@ class LogoCryptoController extends AbstractController
         }
         $this->addFlash('warning', 'Le logo a été supprimée.');
 
-        return $this->redirectToRoute('crypto_token_logo_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_token_logo_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 

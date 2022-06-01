@@ -34,7 +34,7 @@ class LogoExchangeController extends AbstractController
             ->getRepository(logoExchange::class)
             ->findAll();
 
-            return $this->render('comptes/logoExchange/index.html.twig', [
+            return $this->render('@Crypto/comptes/logoExchange/index.html.twig', [
                 'logoExchanges' => $logoExchanges,
             ]);
     }//--- Fin de la function index
@@ -63,10 +63,10 @@ class LogoExchangeController extends AbstractController
 
             $this->addFlash('success',"Le logo a bien été créé");
 
-            return $this->redirectToRoute('crypto_comptes_logoexchange_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_comptes_logoexchange_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/logoexchange/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/logoexchange/form/form.html.twig', [
             'form' => $form->createView(),
             'logoExchange' => $logoexchange,
         ]);
@@ -93,10 +93,10 @@ class LogoExchangeController extends AbstractController
 
             $this->addFlash('success', "Le logo a bien été modifiée");
 
-            return $this->redirectToRoute('crypto_comptes_logoexchange_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_comptes_logoexchange_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/logoexchange/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/logoexchange/form/form.html.twig', [
             'form' => $form->createView(),
             'logoExchange' => $logoexchange,
             ]);
@@ -116,7 +116,7 @@ class LogoExchangeController extends AbstractController
         }
         $this->addFlash('warning', 'Le logo a été supprimée.');
 
-        return $this->redirectToRoute('crypto_comptes_logoexchange_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_comptes_logoexchange_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class LogoExchangeController

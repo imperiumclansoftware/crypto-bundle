@@ -36,7 +36,7 @@ class PlateformeController extends AbstractController
             ->getRepository(Plateforme::class)
             ->findAll();
 
-            return $this->render('comptes/plateforme/index.html.twig', [
+            return $this->render('@Crypto/comptes/plateforme/index.html.twig', [
                 'plateformes' => $plateformes,
             ]);
     }//--- Fin de la function index
@@ -66,10 +66,10 @@ class PlateformeController extends AbstractController
 
             $this->addFlash('success', "La plateforme ".$plateforme->getLibelle().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_comptes_plateforme_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_comptes_plateforme_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/plateforme/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/plateforme/form/form.html.twig', [
             'form' => $form->createView(),
             'plateforme' => $plateforme,
         ]);
@@ -99,7 +99,7 @@ class PlateformeController extends AbstractController
             return $this->redirectToRoute('crypto_comptes_plateforme_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('comptes/plateforme/form/form.html.twig', [
+        return $this->render('@Crypto/comptes/plateforme/form/form.html.twig', [
             'form' => $form->createView(),
             'plateforme' => $plateforme,
             ]);
@@ -119,7 +119,7 @@ class PlateformeController extends AbstractController
         }
         $this->addFlash('warning', "La plateforme ".$plateforme->getLibelle().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_comptes_plateforme_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_comptes_plateforme_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class PlateformeController

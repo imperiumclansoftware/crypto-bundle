@@ -37,7 +37,7 @@ class CryptomonnaieController extends AbstractController
             ->getRepository(Cryptomonnaie::class)
             ->findAll();
 
-            return $this->render('token/cryptomonnaie/index.html.twig', [
+            return $this->render('@Crypto/token/cryptomonnaie/index.html.twig', [
                 'cryptomonnaies' => $cryptomonnaies,
             ]);
     }//--- Fin de la function Index
@@ -71,10 +71,10 @@ class CryptomonnaieController extends AbstractController
 
             $this->addFlash('success',"La cryptomonnaie : ".$cryptomonnaie->getCoinCourt().' a bien été créé');
 
-            return $this->redirectToRoute('crypto_token_cryptomonnaie_homepage', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ics_crypto_token_cryptomonnaie_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/cryptomonnaie/form/form.html.twig', [
+        return $this->render('@Crypto/token/cryptomonnaie/form/form.html.twig', [
             'form' => $form->createView(),
             'cryptomonaie' => $cryptomonnaie,
         ]);
@@ -104,7 +104,7 @@ class CryptomonnaieController extends AbstractController
             return $this->redirectToRoute('crypto_token_cryptomonnaie_homepage', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('token/cryptomonnaie/form/form.html.twig', [
+        return $this->render('@Crypto/token/cryptomonnaie/form/form.html.twig', [
             'form' => $form->createView(),
             'cryptomonnaie' => $cryptomonnaie,
             ]);
@@ -124,7 +124,7 @@ class CryptomonnaieController extends AbstractController
         }
         $this->addFlash('warning', "La cryptomonnaie: ".$cryptomonnaie->getCoinCourt().'  a été supprimée.');
 
-        return $this->redirectToRoute('crypto_token_cryptomonnaie_homepage', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('ics_crypto_token_cryptomonnaie_homepage', [], Response::HTTP_SEE_OTHER);
     }//--- Fin de la function Delete
 
 }//--- Fin de la class CryptomonnaieController

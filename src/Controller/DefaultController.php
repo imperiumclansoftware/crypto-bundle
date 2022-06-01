@@ -9,6 +9,7 @@
     class DefaultController extends AbstractController
     {
         /**
+         * --- Page de construction ---
          * @Route("/construction", name="ics_crypto_construction")
          * @author Philippe Basuyau
          */
@@ -20,6 +21,19 @@
         }//--- Fin de la function constuction
 
         /**
+         * --- Page d'accueil / dashbord ---
+         * @Route("/dashboard", name="ics_crypto_dashboard")
+         * @author Philippe Basuyau
+         */
+        public function dashboard()
+        {
+            return $this->render("@Crypto\default\dashboard.html.twig",[
+
+            ]);
+        }//--- Fin de la function dashboard
+
+        /**
+         * --- Informations plus détaillés sur certaines cryptos ---
          * @Route("/information", name="ics_crypto_information")
          * @author Philippe Basuyau
          */
@@ -28,9 +42,10 @@
             return $this->render("@Crypto\information\infoChart.html.twig",[
 
             ]);
-        }//--- Fin de la function constuction
+        }//--- Fin de la function information
 
         /**
+         * --- Les 100 plus grosses capitalisations de la cryptomonnaie ---
          * @Route("/capitalisation", name="ics_crypto_capitalisation")
          * @author Philippe Basuyau
          */
@@ -39,9 +54,10 @@
             return $this->render("@Crypto\information\capitalisation.html.twig",[
 
             ]);
-        }//--- Fin de la function constuction
+        }//--- Fin de la function capitalisation
 
         /**
+         * --- Sructure de base pour tout CryptoBundle ---
          * @Route("/", name="ics_crypto_homepage")
          * @author Philippe Basuyau
          */

@@ -42,7 +42,7 @@ class Plateforme
      * @ORM\OneToOne(targetEntity="logoExchange", inversedBy="plateformes")
      * @ORM\JoinColumn(name="logo_exchange_id", referencedColumnName="id")
      */
-    private $logoExchange;
+    // private $logoExchange;
 
 
 
