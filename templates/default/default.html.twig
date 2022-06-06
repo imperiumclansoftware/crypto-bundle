@@ -5,23 +5,24 @@
 
 {% block body %}
 
+    <div class="container-fluid" style="">
+
     {% if is_granted("ROLE_USER")  %}
         {{ renderNavBar('main') }} 
     {% endif %}
 
     <div class="wrapper">
-        <div class="container-fluid" style="background-image:url('{{ asset('bundles/crypto/images/fond/texture2.jpg') }}'); height: 830px;">
             <div class="col-12">
                 <div class="row">
-                        <div class="col-1 p-0 m-0 " >
+                        <div class="col-1" >
                             {% block sidebar %}
                                 {% include "@Crypto/sidebar/sidebar.html.twig" %}
                             {% endblock %}
                         </div>
-                        <div class="col-11">
+                        <div class="col-11 p-0 m-0 ">
                             <div class="col-12">
-                            <div class="row">
-                                <div class="p-0 sticky-top shadows" style="top:56px;">
+                            <div class="row p-0 m-0">
+                                <div class="p-0 sticky-top shadows" style="top:56px; z-index:88;">
                                     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
                                     <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,decentraland,polkadot,solana,ripple,litecoin,apecoin" currency="eur" background-color="#ffffff" locale="fr"></coingecko-coin-price-marquee-widget>
                                 </div>
@@ -34,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="row footer bg-dark">
+            <div class="row footer bg-dark fixed-bottom">
                 <footer class="col-sm-12" style="text-align: center;">
                     <p class="text-light mt-1">Cryptomonnaies - Philippe Basuyau &copy; Imperium Clan Software</p>
                 </footer>
@@ -42,5 +43,21 @@
         </div>
     </div>
 {% endblock %}
-{% block stylesheets %}{% endblock %}
-{% block javascripts %}{% endblock %}
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('bundles/crypto/css/jquery.datetimepicker.css') }}">
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" charset="utf8" src="{{ asset('bundles/crypto/js/jquery.datetimepicker.full.min.js')}}"></script>
+        <script>
+        $(document).ready(function() {
+            $('body').attr('style', "background-image:url('{{ asset('bundles/crypto/images/fond/texture2.jpg') }}');background-size: cover;") 
+        
+            $(function () {
+                $('[data-toggle="popover"]').popover({
+                    html: true
+                });
+            });
+            
+        });
+    </script>
+{% endblock %}

@@ -3,11 +3,17 @@
 namespace ICS\CryptoBundle\Form\Type\Comptes;
 
 use ICS\CryptoBundle\Entity\Crypto\Comptes\Compte;
-use ICS\CryptoBundle\Entity\Crypto\Comptes\logoExchange;
 use ICS\CryptoBundle\Entity\Crypto\Comptes\TypePlateforme;
+use ICS\CryptoBundle\Entity\Crypto\Users\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,7 +28,7 @@ class CompteType extends AbstractType
                 TextType::class,
                 [
                     'label' => false,
-                    'required' => false,
+                    'required' => true,
                 ]
             )
         ->add(
@@ -38,49 +44,64 @@ class CompteType extends AbstractType
                 DateTimeType::class,
                 [
                     'label' => false,
-                    'required' => false,
-                    'widget' => 'choice',
+                    'widget' => 'single_text',
+                    'html5' => false,
+                    'attr' => [
+                        'class' =>'datepicker '
+                    ],
                 ]
             )
         ->add(
                 'cloture',
-                DateTimeType::class,
+                DateType::class,
                 [
                     'label' => false,
                     'required' => false,
-                    'widget' => 'choice',
+                    'widget' => 'single_text',
+                    'html5' => false,
+                    'attr' => [
+                        'class' =>'datepicker '
+                    ],
                 ]
             )   
         ->add(
                 'fondGarantie',
                 CheckboxType::class,
                 [
-                    'label' => "fond de garantie",
-                    'required' => false,
+                    'label_attr' => [
+                        'class' => 'checkbox-inline checkbox-switch ',
+                        'Yes' => true,
+                        'No' => false,
+                        'Maybe' => null,
+                    ],
                 ]
             )
         ->add(
                 'montantGarantie',
                 NumberType::class,
                 [
-                    'label' => false,
+                    'label' => 'montant du fond de garantie',
                     'required' => false,
                 ]
             )
         ->add(
-                'typePlateform',
-                EntityType::class,[
+                'typePlateforme',
+                EntityType::class,
+                [
                     'class' => TypePlateforme::class,
-                    'label' => 'Type de plateforme',
-                    'required' => false,
+                    'label' => false,
+                    'required' => true,
+                    'placeholder'=> 'Choisir un type de plateforme'
                 ]
             )
         ->add(
                 'user',
-                EntityType::class,[
+                EntityType::class,
+                [
                     'class' => User::class,
-                    'label' => 'user',
+                    'label' => false,
                     'required' => false,
+                    'placeholder'=> 'Choisir un utilisateur'
                 ]
             ) 
         ;

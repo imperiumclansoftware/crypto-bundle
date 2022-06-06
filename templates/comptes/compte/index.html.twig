@@ -5,5 +5,36 @@
 {% block title %}Crypto - Comptes{% endblock %}
 
 {% block main %}
-    <h1 class="text-center text-light">Comptes</h1>
+
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card col-10 offset-1">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="d-flex bd-highlight mb-3">
+                                <div class="p-2 bd-highlight">
+                                    <a class="btn btn-secondary shadow" href="{{path('ics_crypto_dashboard')}}"><i class="fas fa-undo"></i> Dashbord</a>
+                                </div>
+                                <div class="ms-auto p-2 bd-highlight">
+                                    <a class="btn btn-primary shadow" href="{{path('ics_crypto_comptes_compte_add')}}"><i class="fas fa-plus-circle"></i> Ajouter un compte</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="display-4 text-center">Comptes</h1>
+                {% if comptes %}
+                    {% include '@Crypto/comptes/compte/elements/littleCardCompte.html.twig' %}
+                {% else %}
+                    {% include '@Crypto/comptes/compte/elements/notCompte.html.twig' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

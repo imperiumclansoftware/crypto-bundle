@@ -1,0 +1,15 @@
+{# Formulaire price historique #}
+{% extends '@Crypto/default/default.html.twig' %}
+{% trans_default_domain("crypto") %}
+
+{% block title %}Crypto - Form price historique{% endblock %}
+
+{% block main %}
+    <h1 class="text-center text-light">Form price historique</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

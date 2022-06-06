@@ -1,0 +1,123 @@
+{# Formulaire Compte #}
+{% extends '@Crypto/default/default.html.twig' %}
+{% trans_default_domain("crypto") %}
+
+{% block title %}Crypto - Form Compte{% endblock %}
+
+{% block main %}
+    <div class="row mt-4">
+        {{ form_start (form) }}
+            <div class="col-10 offset-md-1">
+                <div class="card" style="background-color: #808080;" >
+                    <div class="row mt-2">
+                        <div class="col-12" style="padding-left: 21px;">
+                            <a class="btn btn-secondary shadow"href="{{path('ics_crypto_comptes_compte_homepage')}}"><i class="fas fa-undo"></i> Retour</a>    
+                        </div>
+                    </div>
+                    <h2 class="text-center text-white mb-4">Form compte</h2>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="row">
+                                <div class="row text-white">
+                                    <div class="card col-3 bg-secondary shadow">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <div class="input-group-append">
+                                                        <span class="fas fa-folder-open"><span class="card-title" style="padding: 5px;"> Nom du compte</span></span>
+                                                        {{ form_row(form.nameCompte) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <div class="input-group-append">
+                                                        <span class="fas fa-user"><span class="card-title" style="padding: 5px;"> Utilisateur du compte</span></span>
+                                                        {{ form_row(form.user) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card col-4 offset-1 bg-secondary shadow">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <div class="input-group-append">
+                                                        <span class="fas fa-sitemap"><span class="card-title" style="padding: 5px;"> Plateforme</span>
+                                                        </span>
+                                                        {{ form_row(form.typePlateforme) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <h3>Y a t'il un fond de garantie ?</h3>
+                                                <div class="input-group">
+                                                    <div class="input-group-append">
+                                                        {{ form_row(form.fondGarantie)}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="card col-3 offset-1 bg-secondary shadow">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <div class="input-group-append">
+                                                        <span class="far fa-calendar-alt"><span class="card-title" style="padding: 5px;"> Date d'ouverture du compte</span></span>
+                                                        {{ form_row(form.ouverture)}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <div class="input-group-append">
+                                                        <span class="far fa-calendar-alt"><span class="card-title" style="padding: 5px;"> Date de la cloture du compte</span></span>
+                                                        {{ form_widget(form.cloture) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-10 offset-1">
+                            <div class="card col-8 offset-2 bg-secondary shadow">
+                                <div class="card-body">
+                                    <h4 class="card-title">Observation</h4>
+                                    <p class="card-text">
+                                        {{ form_row(form.observation) }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 offset-9">
+                            <div class="container-fluid">
+                                <div class="btn btn-group fixed-right">
+                                    <button class="shadow mb-3 btn btn-success bg-gradient">{{ button_label|default('Sauvegarder') }}</button>
+                                    <a class="shadow mb-3 btn btn-danger bg-gradient" href="{{path('ics_crypto_comptes_compte_homepage')}}">{{ button_label|default('Annuler') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ form_end(form, {'render_rest':false}) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script>
+        $(document).ready(function() {
+            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.datepicker').datetimepicker({ });
+        });
+
+    </script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{# Formulaire Logo Compte #}
+{% extends '@Crypto/default/default.html.twig' %}
+{% trans_default_domain("crypto") %}
+
+{% block title %}Crypto - Form logo compte{% endblock %}
+
+{% block main %}
+    <h1 class="text-center text-light">Form de logo pour les comptes</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

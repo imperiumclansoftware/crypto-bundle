@@ -1,0 +1,15 @@
+{# Formulaire Type de Compte #}
+{% extends '@Crypto/default/default.html.twig' %}
+{% trans_default_domain("crypto") %}
+
+{% block title %}Crypto - Form Types Comptes{% endblock %}
+
+{% block main %}
+    <h1 class="text-center text-light">Form  de type de comptes</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}
