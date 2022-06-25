@@ -49,6 +49,11 @@ class Concensus
         //--- Pas de MtM et de OtM dans cette entity
         $this->cryptomonnaies = new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->getLibelle();
+    }
     //--- Les Getters & les Setters ---
     
 
@@ -134,6 +139,7 @@ class Concensus
 
     /**
      * Get the value of cryptomonnaies
+     * @return  ArrayCollection
      */ 
     public function getCryptomonnaies()
     {
@@ -142,10 +148,11 @@ class Concensus
 
     /**
      * Set the value of cryptomonnaies
+     * @param  ArrayCollection $cryptomonnaie
      *
      * @return  self
      */ 
-    public function setCryptomonnaies($cryptomonnaies)
+    public function setCryptomonnaies(ArrayCollection $cryptomonnaies)
     {
         $this->cryptomonnaies = $cryptomonnaies;
 

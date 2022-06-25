@@ -90,14 +90,14 @@ class OperationType extends AbstractType
                         'required' => false,
                     ]
                 )
-                ->add(
-                    'plateforme',
-                    EntityType::class,[
-                        'class' => Plateforme::class,
-                        'label' => 'Plateforme',
-                        'required' => false,
-                    ]
-                )
+                // ->add(
+                //     'plateforme',
+                //     EntityType::class,[
+                //         'class' => Plateforme::class,
+                //         'label' => 'Plateforme',
+                //         'required' => false,
+                //     ]
+                // )
                 ->add(
                     'cryptoAchete',
                     EntityType::class,[

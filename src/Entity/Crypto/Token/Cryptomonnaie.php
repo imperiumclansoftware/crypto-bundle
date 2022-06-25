@@ -262,21 +262,21 @@ abstract class Cryptomonnaie
     }
 
     /**
-     * Get the value of operationCryptoAchat
+     * Get the value of utilite
      */ 
-    public function getOperationCryptoAchat()
+    public function getUtilite()
     {
-        return $this->operationCryptoAchat;
+        return $this->utilite;
     }
 
     /**
-     * Set the value of operationCryptoAchat
+     * Set the value of utilite
      *
      * @return  self
      */ 
-    public function setOperationCryptoAchat($operationCryptoAchat)
+    public function setUtilite($utilite)
     {
-        $this->operationCryptoAchat = $operationCryptoAchat;
+        $this->utilite = $utilite;
 
         return $this;
     }
@@ -302,74 +302,6 @@ abstract class Cryptomonnaie
     }
 
     /**
-     * Get the value of logo
-     */ 
-    public function getLogo()
-    {
-        return $this->logo;
-    }
-
-    /**
-     * Set the value of logo
-     *
-     * @return  self
-     */ 
-    public function setLogo($logo)
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of operationAchat
-     *
-     * @return  ArrayCollection
-     */ 
-    public function getOperationAchat()
-    {
-        return $this->operationAchat;
-    }
-
-    /**
-     * Set the value of operationAchat
-     *
-     * @param  ArrayCollection  $operationAchat
-     *
-     * @return  self
-     */ 
-    public function setOperationAchat(ArrayCollection $operationAchat)
-    {
-        $this->operationAchat = $operationAchat;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of operationAchete
-     *
-     * @return  ArrayCollection
-     */ 
-    public function getOperationAchete()
-    {
-        return $this->operationAchete;
-    }
-
-    /**
-     * Set the value of operationAchete
-     *
-     * @param  ArrayCollection  $operationAchete
-     *
-     * @return  self
-     */ 
-    public function setOperationAchete(ArrayCollection $operationAchete)
-    {
-        $this->operationAchete = $operationAchete;
-
-        return $this;
-    }
-
-    /**
      * Get the value of opera
      */ 
     public function getOpera()
@@ -385,46 +317,6 @@ abstract class Cryptomonnaie
     public function setOpera($opera)
     {
         $this->opera = $opera;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of utilite
-     */ 
-    public function getUtilite()
-    {
-        return $this->utilite;
-    }
-
-    /**
-     * Set the value of utilite
-     *
-     * @return  self
-     */ 
-    public function setUtilite($utilite)
-    {
-        $this->utilite = $utilite;
-
-        return $this;
-    }
-
-    /**
-     * Get name="OperationToCryptomonnaie",
-     */ 
-    public function getOperations()
-    {
-        return $this->operations;
-    }
-
-    /**
-     * Set name="OperationToCryptomonnaie",
-     *
-     * @return  self
-     */ 
-    public function setOperations($operations)
-    {
-        $this->operations = $operations;
 
         return $this;
     }
@@ -509,4 +401,27 @@ abstract class Cryptomonnaie
         return $this;
     }
 
+    /**
+     * Get )
+     *
+     * @return  ArrayCollection
+     */ 
+    public function getOperations()
+    {
+        return $this->operations;
+    }
+
+    /**
+     * Set )
+     *
+     * @param  ArrayCollection  $operations  )
+     *
+     * @return  self
+     */ 
+    public function setOperations(ArrayCollection $operations)
+    {
+        $this->operations = $operations;
+
+        return $this;
+    }
 }//---Fin de la class Cryptomonnaie

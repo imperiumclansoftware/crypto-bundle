@@ -31,11 +31,18 @@ class PriceHistorique
      * @var DateTime
      */
     private $date;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Token\Cryptomonnaie", mappedBy="concensus")
+     * @var ArrayCollection
+     */
+    private $cryptomonnaies;
 
     //--- Le Construc ---
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
+        $this->cryptomonnaies = new ArrayCollection();
     }
     //--- Les Getters & les Setters ---
 
@@ -106,4 +113,28 @@ class PriceHistorique
         return $this->getPrice();
     }
 
+
+    /**
+     * Get the value of cryptomonnaies
+     *
+     * @return  ArrayCollection
+     */ 
+    public function getCryptomonnaies()
+    {
+        return $this->cryptomonnaies;
+    }
+
+    /**
+     * Set the value of cryptomonnaies
+     *
+     * @param  ArrayCollection  $cryptomonnaies
+     *
+     * @return  self
+     */ 
+    public function setCryptomonnaies(ArrayCollection $cryptomonnaies)
+    {
+        $this->cryptomonnaies = $cryptomonnaies;
+
+        return $this;
+    }
 }//---Fin de la class PriceHistorique

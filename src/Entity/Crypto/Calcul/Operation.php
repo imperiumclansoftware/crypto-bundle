@@ -94,10 +94,10 @@ abstract class Operation
     private $cryptoAchat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme", inversedBy="operations")
-     * @ORM\JoinColumn(name="plateforme_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Compte", inversedBy="operations")
+     * @ORM\JoinColumn(name="compte_id", referencedColumnName="id")
      */
-    private $plateforme;
+    private $compte;
 
     /**
      * --- 1 ---
@@ -118,8 +118,8 @@ abstract class Operation
     {
         //--- Pas de MtM et de OtM dans cette entity
         $this->cryptoAchete = new ArrayCollection();
-        $this->cryptoAchat = new ArrayCollection();
     }
+
      //--- Les Getters & les Setters ---
 
     /**
@@ -272,7 +272,7 @@ abstract class Operation
     }
 
     /**
-     * Get name="CryptomonnaieToOperation",
+     * Get 
      *
      * @return  ArrayCollection
      */ 
@@ -282,7 +282,7 @@ abstract class Operation
     }
 
     /**
-     * Set name="CryptomonnaieToOperation",
+     * Set 
      *
      * @param  ArrayCollection  $cryptoAchete  name="CryptomonnaieToOperation",
      *
@@ -374,7 +374,7 @@ abstract class Operation
     //--- function for override
     //--- abstract placé devant me permet d'indiquer si il est manquant ou pas dans dans la class enfant pour m'obliger à la définir dans la class enfant
     //abstract public function getPrixGlobal();
-    abstract public function getTypes();
+    abstract public function getTypesGain();
     
     public abstract function __toString();
     
@@ -394,6 +394,26 @@ abstract class Operation
     public function setCryptoAchat($cryptoAchat)
     {
         $this->cryptoAchat = $cryptoAchat;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of compte
+     */ 
+    public function getCompte()
+    {
+        return $this->compte;
+    }
+
+    /**
+     * Set the value of compte
+     *
+     * @return  self
+     */ 
+    public function setCompte($compte)
+    {
+        $this->compte = $compte;
 
         return $this;
     }

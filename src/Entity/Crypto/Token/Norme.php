@@ -162,6 +162,7 @@ class Norme
 
     /**
      * Get the value of cryptomonnaies
+     * @return  ArrayCollection
      */ 
     public function getCryptomonnaies()
     {
@@ -170,10 +171,11 @@ class Norme
 
     /**
      * Set the value of cryptomonnaies
+     * @param  ArrayCollection
      *
      * @return  self
      */ 
-    public function setCryptomonnaies($cryptomonnaies)
+    public function setCryptomonnaies(ArrayCollection $cryptomonnaies)
     {
         $this->cryptomonnaies = $cryptomonnaies;
 

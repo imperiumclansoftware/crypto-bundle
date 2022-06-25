@@ -2,7 +2,6 @@
 
 namespace ICS\CryptoBundle\Entity\Crypto\Calcul;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,46 +12,23 @@ use Doctrine\ORM\Mapping as ORM;
 class Gain extends Operation
 {
     /**
-     * @ORM\ManyToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Type", inversedBy="gains")
-     * @ORM\JoinTable(
-     *     name="TypeToGain",
-     *     schema="crypto",
-     *     joinColumns={@ORM\JoinColumn(name="gain_id", referencedColumnName="id", nullable=false)},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="type_id", referencedColumnName="id", nullable=false)}
-     * )
-     * @var ArrayCollection
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Type", inversedBy="gains")
+     * 
      */
-    private $types;
+    private $typesGain;
 
     
     //--- Le Construc ---
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
-        $this->types = new ArrayCollection();
     }
-        
+
+    public function __toString()
+    {
+        return $this->getTypesGain();
+    }
     //--- Les Getters & les Setters ---
-    /**
-     * Get name="TypeToGain",
-     */ 
-    public function getTypes()
-    {
-        return $this->types;
-    }
-
-    /**
-     * Set name="TypeToGain",
-     *
-     * @return  self
-     */ 
-    public function setTypes($types)
-    {
-        $this->types = $types;
-
-        return $this;
-    }
-
     
     /**
      * Get the value of prix
@@ -62,9 +38,21 @@ class Gain extends Operation
         return $this->PrixGlobal;
     }
 
-    public function __toString()
+    /**
+     * Get 
+     */ 
+    public function getTypesGain()
     {
-        return $this->getTypes();
+        return $this->typesGain;
     }
 
+    /**
+     * set
+     */ 
+    public function setTypesGain($typesGain)
+    {
+        $this->typesGain = $typesGain;
+
+        return $this;
+    }
 }

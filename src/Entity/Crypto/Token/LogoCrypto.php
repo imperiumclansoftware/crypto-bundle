@@ -41,6 +41,11 @@ class LogoCrypto
         //--- Pas de MtM et de OtM dans cette entity
         $this->cryptomonnaies = new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->getLogoCrypto();
+    }
      //--- Les Getters & les Setters ---
 
     /**
@@ -105,6 +110,7 @@ class LogoCrypto
 
     /**
      * Get the value of cryptomonnaies
+     * @return  ArrayCollection
      */ 
     public function getCryptomonnaies()
     {
@@ -113,10 +119,11 @@ class LogoCrypto
 
     /**
      * Set the value of cryptomonnaies
+     * @param  ArrayCollection
      *
      * @return  self
      */ 
-    public function setCryptomonnaies($cryptomonnaies)
+    public function setCryptomonnaies(ArrayCollection $cryptomonnaies)
     {
         $this->cryptomonnaies = $cryptomonnaies;
 

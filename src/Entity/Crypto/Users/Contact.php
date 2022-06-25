@@ -2,6 +2,7 @@
 
 namespace ICS\CryptoBundle\Entity\Crypto\Users;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 // REGEX PHONE
@@ -36,8 +37,8 @@ class Contact
     private $adressMail;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\User", inversedBy="contacts")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\User", mappedBy="contacts")
+     * @var ArrayCollection
      */
     private $user;
 
@@ -45,6 +46,7 @@ class Contact
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
+        $this->user = new ArrayCollection();
     }
      //--- Les Getters & les Setters ---
 
@@ -92,6 +94,7 @@ class Contact
 
     /**
      * Get the value of user
+     * @return  ArrayCollection
      */ 
     public function getUser()
     {
@@ -100,10 +103,10 @@ class Contact
 
     /**
      * Set the value of user
-     *
+     * @param  ArrayCollection $user
      * @return  self
      */ 
-    public function setUser($user)
+    public function setUser(ArrayCollection $user)
     {
         $this->user = $user;
 

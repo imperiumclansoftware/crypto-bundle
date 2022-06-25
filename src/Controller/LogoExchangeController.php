@@ -31,7 +31,7 @@ class LogoExchangeController extends AbstractController
     public function index(EntityManagerInterface $em): Response
     {
         $logoExchanges = $em
-            ->getRepository(logoExchange::class)
+            ->getRepository(LogoExchange::class)
             ->findAll();
 
             return $this->render('@Crypto/comptes/logoExchange/index.html.twig', [
@@ -46,7 +46,7 @@ class LogoExchangeController extends AbstractController
      */
     public function addAction(Request $request, EntityManagerInterface $em): Response
     {
-        $logoexchange = new logoExchange();
+        $logoexchange = new LogoExchange();
 
         $form = $this->createForm(LogoExchangeType::class, $logoexchange);
         $form->handleRequest($request);
@@ -79,7 +79,7 @@ class LogoExchangeController extends AbstractController
      */
     public function editAction(ManagerRegistry $doctrine, EntityManagerInterface $em, Request $request, $id,  LogoExchange $logoexchange): Response
     {
-        $logoexchange = $doctrine->getRepository(logoExchange::class)->find($id);
+        $logoexchange = $doctrine->getRepository(LogoExchange::class)->find($id);
 
         $form = $this->createForm(LogoExchangeType::class, $logoexchange);
         $form->handleRequest($request);
@@ -108,7 +108,7 @@ class LogoExchangeController extends AbstractController
      * @Route("/comptes/logoexchange/delete", name="ics_crypto_comptes_logoexchange_delete", methods={"POST"})
      * @author Philippe Basuyau
      */
-    public function deleteAction(Request $request, EntityManagerInterface $em, logoExchange $logoexchange): Response
+    public function deleteAction(Request $request, EntityManagerInterface $em, LogoExchange $logoexchange): Response
     {
         if ($this->isCsrfTokenValid('delete'.$logoexchange->getId(), $request->request->get('_token'))) {
             $em->remove($logoexchange);

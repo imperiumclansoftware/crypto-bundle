@@ -27,7 +27,26 @@
                 </div>
                 <h1 class="display-4 text-center">Comptes</h1>
                 {% if comptes %}
-                    {% include '@Crypto/comptes/compte/elements/littleCardCompte.html.twig' %}
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="jumbotron">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                    <div class="card-deck">
+                                                            {# {% for compte in comptes|batch(2, "null") %} #}
+                                                            {% for compte in comptes %}
+                                                                {% include '@Crypto/comptes/compte/elements/littleCardCompte.html.twig' %}
+                                                            {% endfor %}
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% else %}
                     {% include '@Crypto/comptes/compte/elements/notCompte.html.twig' %}
                 {% endif %}

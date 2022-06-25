@@ -27,7 +27,7 @@ class Type
     private $Libelle;
 
     /**
-     * @ORM\ManyToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Gain", mappedBy="types")
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Gain", mappedBy="typesGain")
      * @var ArrayCollection
      */
     private $gains;
@@ -82,6 +82,7 @@ class Type
 
     /**
      * Get the value of gains
+     * @return  ArrayCollection
      */ 
     public function getGains()
     {
@@ -90,10 +91,10 @@ class Type
 
     /**
      * Set the value of gains
-     *
+     * @param  ArrayCollection  $gain
      * @return  self
      */ 
-    public function setGains($gains)
+    public function setGains(ArrayCollection $gains)
     {
         $this->gains = $gains;
 

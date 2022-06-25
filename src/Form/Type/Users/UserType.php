@@ -31,21 +31,21 @@ class UserType extends AbstractType
                         'required' => false,
                     ]
             )
-            ->add(
-                    'contact',
-                    CollectionType::class,
-                    [
-                        'entry_type' => ContactType::class,
-                        'entry_options' => [
-                            'label' => false,
-                            'showTel' => true,
-                            'showAdressMail' => true,
-                        ],
-                        'label' => false,
-                        'allow_add' => true,
-                        'allow_delete' => true,
-                    ]
-            )
+            // ->add(
+            //         'contact',
+            //         CollectionType::class,
+            //         [
+            //             'entry_type' => ContactType::class,
+            //             'entry_options' => [
+            //                 'label' => false,
+            //                 'showTel' => true,
+            //                 'showAdressMail' => true,
+            //             ],
+            //             'label' => false,
+            //             'allow_add' => true,
+            //             'allow_delete' => true,
+            //         ]
+            // )
         ;
     }
 

@@ -59,10 +59,10 @@ class CompteController extends AbstractController
 
             $compte->setNameCompte();
             $compte->setObservation();
-            $compte->setOuverture(new DateTime());
+            $compte->setOuverture();
             $compte->setFondGarantie();
             $compte->setMontantGarantie();
-            $compte->setTypePlateforme();
+            $compte->setPlateformes();
             $compte->setUser();
 
             $em->persist($compte);

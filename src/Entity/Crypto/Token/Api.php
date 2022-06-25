@@ -104,6 +104,7 @@ class Api
 
     /**
      * Get the value of cryptomonnaies
+     * @return  ArrayCollection
      */ 
     public function getCryptomonnaies()
     {
@@ -112,10 +113,11 @@ class Api
 
     /**
      * Set the value of cryptomonnaies
+     * @param  ArrayCollection $cryptomonnaie
      *
      * @return  self
      */ 
-    public function setCryptomonnaies($cryptomonnaies)
+    public function setCryptomonnaies(ArrayCollection $cryptomonnaies)
     {
         $this->cryptomonnaies = $cryptomonnaies;
 

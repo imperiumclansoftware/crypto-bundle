@@ -26,7 +26,11 @@
                                     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
                                     <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,decentraland,polkadot,solana,ripple,litecoin,apecoin" currency="eur" background-color="#ffffff" locale="fr"></coingecko-coin-price-marquee-widget>
                                 </div>
-                                    {% block main %}{% endblock main %}
+                                    {% block main %}
+                                        <div class="text-center mt-4 " >
+                                            <img class="mt-4 rounded shadow-lg" src="{{ asset('bundles/crypto/images/fond/enkibilal.jpg') }}" alt="Enki bilal">
+                                        </div>
+                                    {% endblock main %}
                                 </div>
                             </div>
                             </div>

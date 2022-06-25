@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @author Philippe BASUYAU
  * @ORM\Entity
  * @ORM\Table(schema="crypto")
  */
@@ -26,17 +27,31 @@ class TypePlateforme
     private $libelle;
 
     /**
-     * 
-     * @ORM\OneToOne(targetEntity="Compte")
+     * @ORM\Column(type="string", length=250, nullable=true)
+     * @var string
      */
-    private $typeCompte;
+    private $icon;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme", mappedBy="types")
+     * @var ArrayCollection
+     */ 
+    private $type;
 
     //--- Le Construc ---
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
+        $this->type = new ArrayCollection();
     }
-     //--- Les Getters & les Setters ---
+
+    
+    public function __toString()
+    {
+        return $this->getLibelle();
+    }
+
+    //--- Les Getters & les Setters ---
     /**
      * Get the value of id
      */ 
@@ -77,28 +92,46 @@ class TypePlateforme
     }
 
     /**
-     * Get the value of typeCompte
+     * Get the value of icon
+     *
+     * @return  string
      */ 
-    public function getTypeCompte()
+    public function getIcon()
     {
-        return $this->typeCompte;
+        return $this->icon;
     }
 
     /**
-     * Set the value of typeCompte
+     * Set the value of icon
+     *
+     * @param  string  $icon
      *
      * @return  self
      */ 
-    public function setTypeCompte($typeCompte)
+    public function setIcon(string $icon)
     {
-        $this->typeCompte = $typeCompte;
+        $this->icon = $icon;
 
         return $this;
     }
 
-    public function __toString()
+    /**
+     * Get the value of type
+     */ 
+    public function getType()
     {
-        return $this->getLibelle();
+        return $this->type;
     }
 
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
 }//--- Fin de la class TypePlateforme

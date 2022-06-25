@@ -33,14 +33,14 @@ class User
     private $surname;
 
     /**
-     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Compte", mappedBy="user")
      * @var ArrayCollection
      */
-    private $plateformes;
+    private $usercompte;
 
     /**
-     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\Contact", mappedBy="user")
-     * @var ArrayCollection
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\Contact", inversedBy="user")
+     * @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
      */
     private $contacts;
 
@@ -48,8 +48,12 @@ class User
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
-        $this->contacts = new ArrayCollection();
-        $this->plateformes = new ArrayCollection();
+        $this->usercompte = new ArrayCollection();
+    }
+    
+    public function __toString()
+    {
+        return $this->getName();
     }
      //--- Les Getters & les Setters ---
 
@@ -115,26 +119,6 @@ class User
     }
 
     /**
-     * Get the value of plateformes
-     */ 
-    public function getPlateformes()
-    {
-        return $this->plateformes;
-    }
-
-    /**
-     * Set the value of plateformes
-     *
-     * @return  self
-     */ 
-    public function setPlateformes($plateformes)
-    {
-        $this->plateformes = $plateformes;
-
-        return $this;
-    }
-
-    /**
      * Get the value of contacts
      */ 
     public function getContacts()
@@ -154,8 +138,28 @@ class User
         return $this;
     }
 
-    public function __toString()
+
+    /**
+     * Get the value of usercompte
+     *
+     * @return  ArrayCollection
+     */ 
+    public function getUsercompte()
     {
-        return $this->getName();
+        return $this->usercompte;
+    }
+
+    /**
+     * Set the value of usercompte
+     *
+     * @param  ArrayCollection  $usercompte
+     *
+     * @return  self
+     */ 
+    public function setUsercompte(ArrayCollection $usercompte)
+    {
+        $this->usercompte = $usercompte;
+
+        return $this;
     }
 }//---Fin de la class User

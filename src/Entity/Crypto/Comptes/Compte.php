@@ -11,8 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(schema="crypto")
  */
-class Compte extends Plateforme
+class Compte 
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
+     */
+    private $id;
     /**
      * @ORM\Column(type="string", length=250, nullable=true)
      * @var string
@@ -50,19 +57,19 @@ class Compte extends Plateforme
     private $montantGarantie;
 
     /**
-     * @ORM\OneToOne(targetEntity="TypePlateforme", inversedBy="typeCompte")
-     * @ORM\JoinColumn(name="typeCompte_id", referencedColumnName="id")
-     */
-    private $typePlateforme;
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme", inversedBy="comptePlateforme")
+     * @ORM\JoinColumn(name="plateforme_id", referencedColumnName="id")
+    */
+    private $plateformes;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\User", inversedBy="plateformes")
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Users\User", inversedBy="usercompte")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Operation", mappedBy="plateforme")
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Operation", mappedBy="compte")
      * @var ArrayCollection
      */
     private $operations;
@@ -72,6 +79,11 @@ class Compte extends Plateforme
     {
         //--- Pas de MtM et de OtM dans cette entity
         $this->operations = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getNameCompte();
     }
      //--- Les Getters & les Setters ---
 
@@ -222,26 +234,6 @@ class Compte extends Plateforme
     }
 
     /**
-     * Get the value of typePlateforme
-     */ 
-    public function getTypePlateforme()
-    {
-        return $this->typePlateforme;
-    }
-
-    /**
-     * Set the value of typePlateforme
-     *
-     * @return  self
-     */ 
-    public function setTypePlateforme($typePlateforme)
-    {
-        $this->typePlateforme = $typePlateforme;
-
-        return $this;
-    }
-
-    /**
      * Get the value of user
      */ 
     public function getUser()
@@ -281,6 +273,50 @@ class Compte extends Plateforme
     public function setOperations(ArrayCollection $operations)
     {
         $this->operations = $operations;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     *
+     * @return  int
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @param  int  $id
+     *
+     * @return  self
+     */ 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of plateformes
+     */ 
+    public function getPlateformes()
+    {
+        return $this->plateformes;
+    }
+
+    /**
+     * Set the value of plateformes
+     *
+     * @return  self
+     */ 
+    public function setPlateformes($plateformes)
+    {
+        $this->plateformes = $plateformes;
 
         return $this;
     }

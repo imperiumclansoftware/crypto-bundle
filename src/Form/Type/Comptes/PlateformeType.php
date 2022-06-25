@@ -2,12 +2,11 @@
 
 namespace ICS\CryptoBundle\Form\Type\Comptes;
 
+use ICS\CryptoBundle\Entity\Crypto\Comptes\logoExchange;
 use ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme;
-use ICS\CryptoBundle\Entity\Crypto\Users\User;
+use ICS\CryptoBundle\Entity\Crypto\Comptes\TypePlateforme;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -46,11 +45,21 @@ class PlateformeType extends AbstractType
         ->add(
                 'logoExchange',
                 EntityType::class,[
-                    'class' => logoExchange::class,
+                    'class' => LogoExchange::class,
                     'label' => 'Type de plateforme',
                     'required' => false,
                 ]
             )
+        // ->add(
+        //         'types',
+        //         EntityType::class,[
+        //             'class' => TypePlateforme::class,
+        //             'label' => 'Type de plateforme',
+        //             'required' => false,
+        //             'multiple' => true,
+        //             'expanded' => false
+        //         ]
+        //     )
         ;
     }
 

@@ -6,7 +6,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @author Philippe BASUYAU
  * @ORM\Entity
+ * @ORM\Table(schema="crypto")
  */
 class logoExchange
 {

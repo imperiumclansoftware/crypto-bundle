@@ -14,7 +14,7 @@
                             <a class="btn btn-secondary shadow"href="{{path('ics_crypto_comptes_compte_homepage')}}"><i class="fas fa-undo"></i> Retour</a>    
                         </div>
                     </div>
-                    <h2 class="text-center text-white mb-4">Form compte</h2>
+                    <h2 class="text-center text-white mb-4">Enregistrer un compte</h2>
                     <div class="row">
                         <div class="col-10 offset-1">
                             <div class="row">
@@ -46,16 +46,29 @@
                                                     <div class="input-group-append">
                                                         <span class="fas fa-sitemap"><span class="card-title" style="padding: 5px;"> Plateforme</span>
                                                         </span>
-                                                        {{ form_row(form.typePlateforme) }}
+                                                        {{ form_row(form.plateformes) }}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <h3>Y a t'il un fond de garantie ?</h3>
                                                 <div class="input-group">
-                                                    <div class="input-group-append">
-                                                        {{ form_row(form.fondGarantie)}}
+                                                    <div class="input-group-append" id="fondGarantie">
+                                                        {# <h6>
+                                                        Y a t'il un fond de garantie ? #}
+                                                        {# {{ form_row(form.fondGarantie)}} #}
+                                                        {# </h6> #}
+                                                        
+                                                        <label class="form-check-label required" for="compte_fondGarantie">
+                                                            Y a t'il un fond de garantie ? 
+                                                            <input type="radio" id="compte_fondGarantie" name="compte[fondGarantie]" required="false" class="form-check-input" value="1"><label class="ml-2 mr-2" for="">Oui</label>
+                                                            <input type="radio" id="compte_noFondGarantie" name="compte[fondGarantie]" required="false" class="form-check-input" value="0" checked><label class="ml-2 mr-2" for="">Non</label>
+                                                        </label>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="row montantgarantie" id='montantgarantie'>
+                                                <div class="input-group-append">
+                                                    {{ form_row(form.montantGarantie )}}
                                                 </div>
                                             </div>
                                         </div>
@@ -73,8 +86,8 @@
                                             <div class="row">
                                                 <div class="input-group">
                                                     <div class="input-group-append">
-                                                        <span class="far fa-calendar-alt"><span class="card-title" style="padding: 5px;"> Date de la cloture du compte</span></span>
-                                                        {{ form_widget(form.cloture) }}
+                                                        <span class="far fa-calendar-alt"><span class="card-title" style="padding: 5px;"> Cloturer le compte</span></span>
+                                                        {# {{ form_widget(form.cloture) }} #}
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,12 +125,30 @@
 {% endblock %}
 
 {% block javascripts %}
+
     {{parent()}}
+
     <script>
+
         $(document).ready(function() {
-            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.montantgarantie').hide();
             $('.datepicker').datetimepicker({ });
-        });
+
+            $("#compte_fondGarantie").change(function () {
+                valeurMontantGarantie = $(this).val();
+
+                if (valeurMontantGarantie == 1) {
+                    $('.montantgarantie').show();
+                }
+            });
+            $("#compte_noFondGarantie").change(function () {
+                valeurMontantGarantie = $(this).val();
+                if (valeurMontantGarantie == 0) {
+                    $('.montantgarantie').hide();
+                }
+            });
+
+        }); //---Fin du document Ready
 
     </script>
 {% endblock %}

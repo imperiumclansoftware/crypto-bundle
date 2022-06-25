@@ -23,9 +23,9 @@ class Achat extends Operation
     /**
      * Get name="TypeToGain",
      */ 
-    public function getTypes()
+    public function getTypesGain()
     {
-        return $this->types;
+        return $this->typesGain;
     }
     
     public function __toString()

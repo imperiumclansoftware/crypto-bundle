@@ -2,6 +2,7 @@
 
 namespace ICS\CryptoBundle\Entity\Crypto\Comptes;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,17 +40,34 @@ class Plateforme
     private $description;
 
     /**
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Compte", mappedBy="plateformes")
+     * @var ArrayCollection
+     */
+    private $comptePlateforme;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\TypePlateforme", inversedBy="type")
+     * @ORM\JoinColumn(name="typeplateforme_id", referencedColumnName="id")
+     */
+    private $types;
+
+    /**
      * @ORM\OneToOne(targetEntity="logoExchange", inversedBy="plateformes")
      * @ORM\JoinColumn(name="logo_exchange_id", referencedColumnName="id")
      */
     // private $logoExchange;
 
-
-
+    
      //--- Le Construc ---
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
+        $this->comptePlateforme = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getLibelle();
     }
       //--- Les Getters & les Setters ---
 
@@ -170,4 +188,68 @@ class Plateforme
 
         return $this;
     }
+
+    /**
+     * Get the value of comptePlateforme
+     *
+     * @return  ArrayCollection
+     */ 
+    public function getComptePlateforme()
+    {
+        return $this->comptePlateforme;
+    }
+
+    /**
+     * Set the value of comptePlateforme
+     *
+     * @param  ArrayCollection  $comptePlateforme
+     *
+     * @return  self
+     */ 
+    public function setComptePlateforme(ArrayCollection $comptePlateforme)
+    {
+        $this->comptePlateforme = $comptePlateforme;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of types
+     */ 
+    public function getTypes()
+    {
+        return $this->types;
+    }
+
+    /**
+     * Set the value of types
+     *
+     * @return  self
+     */ 
+    public function setTypes($types)
+    {
+        $this->types = $types;
+
+        return $this;
+    }
+
+    // /**
+    //  * Get the value of logoExchange
+    //  */ 
+    // public function getLogoExchange()
+    // {
+    //     return $this->logoExchange;
+    // }
+
+    // /**
+    //  * Set the value of logoExchange
+    //  *
+    //  * @return  self
+    //  */ 
+    // public function setLogoExchange($logoExchange)
+    // {
+    //     $this->logoExchange = $logoExchange;
+
+    //     return $this;
+    // }
 }//---Fin de la class Plateforme
