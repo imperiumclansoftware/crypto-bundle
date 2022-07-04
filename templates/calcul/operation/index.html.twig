@@ -5,5 +5,45 @@
 {% block title %}Crypto - Opération{% endblock %}
 
 {% block main %}
+<pre>
+    {{ dump(operations) }}
+</pre>
     <h1 class="text-center text-light">Opération</h1>
+    <div class="row ">
+        <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2 alert-secondary">
+                            {% include '@Crypto/calcul/operation/elements/wallet.html.twig' %}
+                        </div>
+                        <div class="col-3 alert-warning">
+                            {% include '@Crypto/calcul/operation/elements/earn.html.twig' %}
+                        </div>
+                        <div class="col-3 alert-warning">
+                            {% include '@Crypto/calcul/operation/elements/supercharge.html.twig' %}
+                        </div>
+                        <div class="col-4 alert-primary">
+                            <div class="card col-12 mb-3">
+                                <div class="card-body"> 
+                                    {% include '@Crypto/calcul/operation/elements/bilan.html.twig' %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="container">
+                <div class="row alert-info">
+                        <div class="col-3">cfxbdfgd</div>
+                        <div class="col-3">fcsdcss</div>
+                        <div class="col-3">dfgcf</div>
+                        <div class="col-3">fdfdfgre</div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
