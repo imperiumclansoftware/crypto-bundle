@@ -23,7 +23,7 @@ class PlateformeType extends AbstractType
                 TextType::class,
                 [
                     'label' => false,
-                    'required' => false,
+                    'required' => true,
                 ]
             )
         ->add(
@@ -42,14 +42,14 @@ class PlateformeType extends AbstractType
                     'required' => false,
                 ]
             )
-        ->add(
-                'logoExchange',
-                EntityType::class,[
-                    'class' => LogoExchange::class,
-                    'label' => 'Type de plateforme',
-                    'required' => false,
-                ]
-            )
+        // ->add(
+        //         'logoExchange',
+        //         EntityType::class,[
+        //             'class' => LogoExchange::class,
+        //             'label' => 'Type de plateforme',
+        //             'required' => false,
+        //         ]
+        //     )
         // ->add(
         //         'types',
         //         EntityType::class,[

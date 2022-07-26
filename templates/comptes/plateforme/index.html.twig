@@ -1,9 +1,56 @@
 {# affichage Plateforme de Compte #}
-{% extends '@Crypto/default/default.html.twig' %}
+{# {% include '@Crypto/comptes/plateforme/index.html.twig' %} #}
+{# {% extends '@Crypto/default/default.html.twig' %}
 {% trans_default_domain("crypto") %}
 
-{% block title %}Crypto - Platefromes{% endblock %}
+{% block title %}Crypto - Type de plateformes{% endblock %}
 
 {% block main %}
-    <h1 class="text-center text-light">Platefromes</h1>
-{% endblock %}
+    <h1 class="text-center text-light">Type de plateformes</h1>
+{% endblock %} #}
+
+    {# <h1 class="text-center text-light">Type de plateformes</h1> #}
+    <div class="row">
+        <div class="card-body bg-light text-dark">
+            <div class="col-12">
+                <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="d-flex bd-highlight mb-3">
+                                    {# <div class="p-2 bd-highlight">
+                                        <a class="btn btn-secondary shadow" href="{{path('ics_crypto_dashboard')}}"><i class="fas fa-undo"></i> Dashbord</a>
+                                    </div> #}
+                                    <div class="ms-auto p-2 bd-highlight">
+                                        <a class="btn btn-primary shadow" href="{{path('ics_crypto_comptes_plateforme_add')}}"><i class="fas fa-plus-circle"></i> Ajouter un type de plateformes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% if plateformes is not defined %}
+                    <h3 class="mt-4">
+                        Pas de type de plateformes déclarés
+                    </h3>
+                {% else %}
+                        <table class="table table-striped table-hover tablesorter table-border p-0 my-0">
+                            <thead>
+                                <tr>
+                                    <td>Nom de la pateforme</td>
+                                    <td>Description</td>
+                                    <td>couleur associéé </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {% for plateforme in plateformes %}
+                                        <td> {{ plateforme.libelle}} </td>
+                                        <td> {{ plateforme.gravity}} </td>
+                                        <td> {{ plateforme.description}} </td>
+                                    {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>

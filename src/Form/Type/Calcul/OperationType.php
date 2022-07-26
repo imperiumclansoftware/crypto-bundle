@@ -5,10 +5,12 @@ namespace ICS\CryptoBundle\Form\Type\Calcul;
 use ICS\CryptoBundle\Entity\Crypto\Calcul\Operation;
 use ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme;
 use ICS\CryptoBundle\Entity\Crypto\Token\Cryptomonnaie;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -67,7 +69,7 @@ class OperationType extends AbstractType
                     ]
                 )
                 ->add(
-                    'euroAchate',
+                    'euroAchete',
                     NumberType::class,
                     [
                         'label' => false,
@@ -90,14 +92,15 @@ class OperationType extends AbstractType
                         'required' => false,
                     ]
                 )
-                // ->add(
-                //     'plateforme',
-                //     EntityType::class,[
-                //         'class' => Plateforme::class,
-                //         'label' => 'Plateforme',
-                //         'required' => false,
-                //     ]
-                // )
+                ->add(
+                    'plateformes',
+                    EntityType::class,[
+                        'class' => Plateforme::class,
+                        'label' => 'Plateforme',
+                        'required' => true,
+                        'placeholder'=> 'Choisir une plateforme'
+                    ]
+                )
                 ->add(
                     'cryptoAchete',
                     EntityType::class,[

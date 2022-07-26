@@ -40,6 +40,12 @@ class Plateforme
     private $description;
 
     /**
+     * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Calcul\Operation", mappedBy="plateformes")
+     * @var ArrayCollection
+     */
+    private $calculOperation;
+
+    /**
      * @ORM\OneToMany(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Compte", mappedBy="plateformes")
      * @var ArrayCollection
      */
@@ -169,25 +175,7 @@ class Plateforme
         return $this;
     }
 
-    /**
-     * Get the value of logoExchange
-     */ 
-    public function getLogoExchange()
-    {
-        return $this->logoExchange;
-    }
 
-    /**
-     * Set the value of logoExchange
-     *
-     * @return  self
-     */ 
-    public function setLogoExchange($logoExchange)
-    {
-        $this->logoExchange = $logoExchange;
-
-        return $this;
-    }
 
     /**
      * Get the value of comptePlateforme
@@ -233,23 +221,29 @@ class Plateforme
         return $this;
     }
 
-    // /**
-    //  * Get the value of logoExchange
-    //  */ 
-    // public function getLogoExchange()
-    // {
-    //     return $this->logoExchange;
-    // }
 
-    // /**
-    //  * Set the value of logoExchange
-    //  *
-    //  * @return  self
-    //  */ 
-    // public function setLogoExchange($logoExchange)
-    // {
-    //     $this->logoExchange = $logoExchange;
 
-    //     return $this;
-    // }
+    /**
+     * Get the value of calculOperation
+     *
+     * @return  ArrayCollection
+     */ 
+    public function getCalculOperation()
+    {
+        return $this->calculOperation;
+    }
+
+    /**
+     * Set the value of calculOperation
+     *
+     * @param  ArrayCollection  $calculOperation
+     *
+     * @return  self
+     */ 
+    public function setCalculOperation(ArrayCollection $calculOperation)
+    {
+        $this->calculOperation = $calculOperation;
+
+        return $this;
+    }
 }//---Fin de la class Plateforme

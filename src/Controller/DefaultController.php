@@ -21,6 +21,18 @@
         }//--- Fin de la function constuction
 
         /**
+         * --- Page de administration ---
+         * @Route("/administration", name="ics_crypto_administration")
+         * @author Philippe Basuyau
+         */
+        public function administration()
+        {
+            return $this->render("@Crypto\default\administration.html.twig",[
+
+            ]);
+        }//--- Fin de la function administration
+
+        /**
          * --- Page d'accueil / dashbord ---
          * @Route("/dashboard", name="ics_crypto_dashboard")
          * @author Philippe Basuyau

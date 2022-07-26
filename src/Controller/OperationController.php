@@ -64,13 +64,13 @@ class OperationController extends AbstractController
             $operation->setEuroAchete();
             $operation->setEuroAchat();
             $operation->setCryptoAchat();
-            $operation->setPlateforme();
+            $operation->setPlateformes();
             $operation->setCryptoAchete();
 
             $em->persist($operation);
             $em->flush();
 
-            $this->addFlash('success',"La transaction du ".$operation->getCryptoAchete()." en ".$operation->getCryptoAchat().' a bien été créé');
+            $this->addFlash('success', "L'opération du ".$operation->getCryptoAchete()." en ".$operation->getCryptoAchat().' a bien été créé');
 
             return $this->redirectToRoute('ics_crypto_calcul_operation_homepage', [], Response::HTTP_SEE_OTHER);
         }

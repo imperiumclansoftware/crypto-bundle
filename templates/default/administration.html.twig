@@ -1,0 +1,38 @@
+{# Page avec affichage en travaux ou en construction #}
+{% extends '@Crypto/default/default.html.twig' %}
+
+{% block main %}
+    <h1 class="text-center text-light mt-4">Administratif - Gestion des listes de</h1>
+
+    <div class="text-center mt-4 " style="height: 400px;">
+        {# <img src="{{ asset('bundles/crypto/images/travaux/travaux.jpg') }}" alt="en travaux"> #}
+
+<div class="container">
+    <div class="card-body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#typeCompte" type="button" role="tab" aria-controls="home" aria-selected="true">Type de comptes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#typePlateforme" type="button" role="tab" aria-controls="profile" aria-selected="false">Type de plateformes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#adminToto" type="button" role="tab" aria-controls="contact" aria-selected="false">toto</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="typeCompte" role="tabpanel" aria-labelledby="home-tab">
+                toto 1
+            </div>
+            <div class="tab-pane fade" id="typePlateforme" role="tabpanel" aria-labelledby="profile-tab">
+                {% include '@Crypto/comptes/plateforme/index.html.twig' %}
+            </div>
+            <div class="tab-pane fade" id="adminToto" role="tabpanel" aria-labelledby="contact-tab">
+                toto  3
+            </div>
+        </div>
+    </div>
+</div>   
+
+    </div>
+{% endblock %}

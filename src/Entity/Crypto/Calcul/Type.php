@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(schema="crypto")
  */
-class Type
+class Type 
 {
     /**
      * @ORM\Id

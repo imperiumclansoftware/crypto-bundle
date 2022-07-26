@@ -5,11 +5,60 @@
 {% block title %}Crypto - Form Plateforme Compte{% endblock %}
 
 {% block main %}
-    <h1 class="text-center text-light">Form plateforme de comptes</h1>
+    <h1 class="text-center text-light">Gestion des types de plateformes</h1>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card-body text-dark" style="background-color: #839192 ;">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row mt-2 mb-4">
+                                    <div class="col-12" style="padding-left: 21px;">
+                                        <a class="btn btn-secondary shadow"href="{{path('ics_crypto_comptes_plateforme_homepage')}}"><i class="fas fa-undo"></i> Retour</a>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" col-8 offset-2">
+                            <div class="card-body mb-4 shadow bg-light text-dark">
+                                {{ form_start(form) }}
+                                    {# {{ form_widget(form) }} #}
+                                    <div class="label">
+                                        Nom du type de plateformes
+                                        {{ form_row(form.libelle) }}
+                                    </div>
+                                    <div class="label">
+                                        La couleur associée
+                                        {{ form_row(form.gravity) }}
+                                    </div>
+                                    <div class="label">
+                                        Description du type de plateformes
+                                        {{ form_row(form.description) }}
+                                    </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn">{{ button_label|default('Save') }}</button>
-    {{ form_end(form) }}
+                                    <div class="row">
+                                        <div class="col-4 offset-6">
+                                            <div class="container-fluid">
+                                                <div class="btn btn-group fixed-right">
+                                                    <button class="shadow mb-1 btn btn-success bg-gradient">{{ button_label|default('Sauvegarder') }}</button>
+                                                    <a class="shadow mb-1 btn btn-danger bg-gradient" href="{{path('ics_crypto_comptes_plateforme_homepage')}}">{{ button_label|default('Annuler') }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
 
 {% endblock %}

@@ -57,7 +57,7 @@ class Compte
     private $montantGarantie;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme", inversedBy="comptePlateforme")
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme", inversedBy="calculOperation")
      * @ORM\JoinColumn(name="plateforme_id", referencedColumnName="id")
     */
     private $plateformes;

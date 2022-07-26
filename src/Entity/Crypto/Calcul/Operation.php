@@ -13,7 +13,7 @@ use DateTime;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  */
-abstract class Operation
+class Operation
 {
     /**
      * @ORM\Id
@@ -112,12 +112,19 @@ abstract class Operation
      */
     private $cryptoAchete;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ICS\CryptoBundle\Entity\Crypto\Comptes\Plateforme", inversedBy="$calculOperation")
+     * @ORM\JoinColumn(name="plateforme_id", referencedColumnName="id")
+    */
+    private $plateformes;
+
 
     //--- Le Construc ---
     public function __construct()
     {
         //--- Pas de MtM et de OtM dans cette entity
         $this->cryptoAchete = new ArrayCollection();
+        $this->plateformes = new ArrayCollection();
     }
 
      //--- Les Getters & les Setters ---
@@ -200,27 +207,6 @@ abstract class Operation
     public function setGravity($gravity)
     {
         $this->gravity = $gravity;
-
-        return $this;
-    }
-
-
-    /**
-     * Get the value of plateforme
-     */ 
-    public function getPlateforme()
-    {
-        return $this->plateforme;
-    }
-
-    /**
-     * Set the value of plateforme
-     *
-     * @return  self
-     */ 
-    public function setPlateforme($plateforme)
-    {
-        $this->plateforme = $plateforme;
 
         return $this;
     }
@@ -374,9 +360,9 @@ abstract class Operation
     //--- function for override
     //--- abstract placé devant me permet d'indiquer si il est manquant ou pas dans dans la class enfant pour m'obliger à la définir dans la class enfant
     //abstract public function getPrixGlobal();
-    abstract public function getTypesGain();
+    //abstract public function getTypesGain();
     
-    public abstract function __toString();
+    //public abstract function __toString();
     
     /**
      * Get --- 5 ---
@@ -414,6 +400,26 @@ abstract class Operation
     public function setCompte($compte)
     {
         $this->compte = $compte;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of plateformes
+     */ 
+    public function getPlateformes()
+    {
+        return $this->plateformes;
+    }
+
+    /**
+     * Set the value of plateformes
+     *
+     * @return  self
+     */ 
+    public function setPlateformes($plateformes)
+    {
+        $this->plateformes = $plateformes;
 
         return $this;
     }
